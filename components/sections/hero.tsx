@@ -41,8 +41,8 @@ export function Hero() {
           transition={{ duration: 0.7, delay: 0.1 }}
           className="mt-8 max-w-4xl font-heading text-4xl font-bold leading-[1.08] tracking-tight text-foreground sm:text-6xl lg:text-7xl"
         >
-          Healthcare software that feels
-          <span className="text-gradient"> effortless</span>
+          Run your entire <span className="text-gradient">clinic</span> from
+          one <span className="text-gradient">intelligent</span> platform
         </motion.h1>
 
         <motion.p

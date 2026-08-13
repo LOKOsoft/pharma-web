@@ -22,7 +22,6 @@ function GradientBackground({
           <div className="absolute left-1/2 top-[-12rem] h-[42rem] w-[42rem] -translate-x-1/2 rounded-full bg-gradient-to-br from-primary/25 via-accent/20 to-secondary/25 blur-3xl animate-glow-pulse" />
           <div className="absolute -left-32 top-40 h-96 w-96 rounded-full bg-accent/20 blur-3xl animate-float-slow" />
           <div className="absolute -right-24 top-16 h-[28rem] w-[28rem] rounded-full bg-secondary/20 blur-3xl animate-float" />
-          <div className="absolute inset-x-0 top-0 h-[48rem] grid-fade" />
         </>
       )}
       {variant === "section" && (
