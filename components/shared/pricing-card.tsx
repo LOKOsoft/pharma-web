@@ -45,7 +45,7 @@ export function PricingCard({ plan, billing, className }: PricingCardProps) {
 
       <div className="mt-6 flex items-baseline gap-1">
         <span className="font-heading text-4xl font-bold tracking-tight text-foreground">
-          ${price}
+          ₹{price.toLocaleString("en-IN")}
         </span>
         <span className="text-sm text-muted-foreground">/ month</span>
       </div>

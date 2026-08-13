@@ -10,7 +10,7 @@ import { siteConfig } from "@/lib/site";
 export const metadata: Metadata = {
   title: "Contact",
   description:
-    "Get in touch with NineDoctor. Book a demo, ask a question, or talk to our team about bringing modern healthcare software to your practice.",
+    "Get in touch with 9Doctor. Book a demo, ask a question, or talk to our team about bringing modern healthcare software to your practice.",
   alternates: { canonical: "/contact" },
 };
 

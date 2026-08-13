@@ -28,13 +28,13 @@ export function Navbar() {
   }, [pathname]);
 
   return (
-    <header
-      className={cn(
-        "w-full transition-all duration-300",
-        scrolled ? "glass-nav border-b border-border/60 shadow-sm" : "bg-transparent"
-      )}
-    >
-      <div className="mx-auto flex h-[4.5rem] max-w-7xl items-center justify-between px-5 py-3 sm:px-8 lg:px-10">
+    <header className="sticky top-4 z-50 w-full px-5 sm:top-5 sm:px-8 lg:px-10">
+      <div
+        className={cn(
+          "glass-nav mx-auto grid h-[4rem] max-w-7xl grid-cols-[1fr_auto_1fr] items-center rounded-full border border-white/40 px-4 shadow-[0_8px_32px_-12px_rgba(15,23,42,0.18)] transition-all duration-300 sm:px-6",
+          scrolled && "shadow-[0_12px_40px_-12px_rgba(15,23,42,0.28)]"
+        )}
+      >
         <Logo />
 
         <nav className="hidden items-center gap-1 lg:flex">
@@ -62,24 +62,26 @@ export function Navbar() {
           })}
         </nav>
 
-        <div className="hidden items-center gap-3 lg:flex">
-          <Button variant="ghost" size="default" asChild>
-            <Link href="/contact">Login</Link>
-          </Button>
-          <Button variant="default" size="default" asChild>
-            <Link href="/contact">Book a Demo</Link>
-          </Button>
-        </div>
+        <div className="flex items-center justify-self-end">
+          <div className="hidden items-center gap-3 lg:flex">
+            <Button variant="ghost" size="default" asChild>
+              <Link href="/contact">Login</Link>
+            </Button>
+            <Button variant="default" size="default" asChild>
+              <Link href="/contact">Book a Demo</Link>
+            </Button>
+          </div>
 
-        <button
-          type="button"
-          onClick={() => setOpen((v) => !v)}
-          className="flex h-10 w-10 items-center justify-center rounded-full text-foreground lg:hidden"
-          aria-label={open ? "Close menu" : "Open menu"}
-          aria-expanded={open}
-        >
-          {open ? <X className="h-6 w-6" /> : <Menu className="h-6 w-6" />}
-        </button>
+          <button
+            type="button"
+            onClick={() => setOpen((v) => !v)}
+            className="flex h-10 w-10 items-center justify-center rounded-full text-foreground lg:hidden"
+            aria-label={open ? "Close menu" : "Open menu"}
+            aria-expanded={open}
+          >
+            {open ? <X className="h-6 w-6" /> : <Menu className="h-6 w-6" />}
+          </button>
+        </div>
       </div>
 
       <AnimatePresence>
@@ -89,9 +91,9 @@ export function Navbar() {
             animate={{ height: "auto", opacity: 1 }}
             exit={{ height: 0, opacity: 0 }}
             transition={{ duration: 0.3, ease: "easeInOut" }}
-            className="overflow-hidden glass-nav border-b border-border/60 lg:hidden"
+            className="glass-nav mx-auto mt-2 max-w-7xl overflow-hidden rounded-3xl border border-white/40 shadow-[0_8px_32px_-12px_rgba(15,23,42,0.18)] lg:hidden"
           >
-            <nav className="flex flex-col gap-1 px-5 pb-6 pt-2 sm:px-8">
+            <nav className="flex flex-col gap-1 p-4">
               {mainNav.map((link) => (
                 <Link
                   key={link.href}

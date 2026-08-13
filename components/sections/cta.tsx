@@ -21,7 +21,7 @@ export function CTA() {
               Ready to modernize your healthcare operations?
             </h2>
             <p className="relative mx-auto mt-5 max-w-xl text-base leading-relaxed text-white/85 sm:text-lg">
-              Join thousands of providers already running their practice on NineDoctor. Book a
+              Join thousands of providers already running their practice on 9Doctor. Book a
               personalized demo today.
             </p>
             <div className="relative mt-10 flex flex-col items-center justify-center gap-4 sm:flex-row">

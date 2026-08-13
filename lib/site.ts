@@ -1,8 +1,8 @@
 export const siteConfig = {
-  name: "NineDoctor",
+  name: "9Doctor",
   tagline: "The operating system for modern healthcare",
   description:
-    "NineDoctor is an intelligent Doctor & Patient Management System that helps hospitals, clinics, doctors, receptionists, pharmacists, and patients manage healthcare digitally — appointments, records, prescriptions, billing, and more, in one elegant platform.",
+    "9Doctor is an intelligent Doctor & Patient Management System that helps hospitals, clinics, doctors, receptionists, pharmacists, and patients manage healthcare digitally — appointments, records, prescriptions, billing, and more, in one elegant platform.",
   url: "https://ninedoctor.health",
   keywords: [
     "healthcare software",

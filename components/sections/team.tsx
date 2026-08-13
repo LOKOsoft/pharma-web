@@ -8,7 +8,7 @@ export function Team() {
     <Section>
       <SectionHeading
         eyebrow="Our Team"
-        title="The people behind NineDoctor"
+        title="The people behind 9Doctor"
         description="A small, focused team of clinicians, engineers, and designers building the healthcare software we always wished existed."
       />
 

@@ -15,7 +15,7 @@ export function FAQ() {
       <SectionHeading
         eyebrow="FAQ"
         title="Frequently asked questions"
-        description="Everything you need to know about getting started with NineDoctor."
+        description="Everything you need to know about getting started with 9Doctor."
       />
 
       <Reveal direction="up" className="mx-auto mt-14 max-w-3xl">

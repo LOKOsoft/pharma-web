@@ -88,7 +88,7 @@ export function OgImageContent() {
             letterSpacing: -1.5,
           }}
         >
-          NineDoctor
+          9Doctor
         </div>
       </div>
 

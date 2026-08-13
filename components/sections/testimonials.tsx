@@ -10,7 +10,7 @@ export function Testimonials() {
       <SectionHeading
         eyebrow="Testimonials"
         title="Loved by doctors and healthcare teams"
-        description="Hear from the clinics, hospitals, and pharmacists who run their operations on NineDoctor."
+        description="Hear from the clinics, hospitals, and pharmacists who run their operations on 9Doctor."
       />
 
       <RevealGroup

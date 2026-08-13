@@ -5,9 +5,11 @@ import { motion } from "framer-motion";
 import {
   ArrowRight,
   Activity,
+  Bell,
   CalendarCheck,
   HeartPulse,
   PlayCircle,
+  Search,
   Stethoscope,
   TrendingUp,
 } from "lucide-react";
@@ -20,7 +22,7 @@ import { heroStats } from "@/constants/stats";
 
 export function Hero() {
   return (
-    <section className="relative overflow-hidden pb-20 pt-16 sm:pb-28 sm:pt-24">
+    <section className="relative overflow-hidden pb-20 pt-24 sm:pb-28 sm:pt-32">
       <GradientBackground variant="hero" />
 
       <div className="mx-auto flex max-w-7xl flex-col items-center px-5 text-center sm:px-8 lg:px-10">
@@ -39,7 +41,7 @@ export function Hero() {
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.7, delay: 0.1 }}
-          className="mt-8 max-w-4xl font-heading text-4xl font-bold leading-[1.08] tracking-tight text-foreground sm:text-6xl lg:text-7xl"
+          className="mt-8 max-w-4xl font-heading text-4xl font-bold leading-[1.08] tracking-tight text-foreground sm:text-6xl lg:text-[4.25rem]"
         >
           Run your entire <span className="text-gradient">clinic</span> from
           one <span className="text-gradient">intelligent</span> platform
@@ -49,9 +51,9 @@ export function Hero() {
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.7, delay: 0.2 }}
-          className="mt-6 max-w-2xl text-balance text-lg leading-relaxed text-muted-foreground sm:text-xl"
+          className="mt-6 max-w-3xl text-balance text-base leading-relaxed text-muted-foreground sm:text-lg"
         >
-          NineDoctor unifies appointments, records, prescriptions, billing, and telemedicine
+          9Doctor unifies appointments, records, prescriptions, billing, and telemedicine
           into one intelligent platform — built for hospitals, clinics, and the people who run
           them.
         </motion.p>
@@ -62,13 +64,13 @@ export function Hero() {
           transition={{ duration: 0.7, delay: 0.3 }}
           className="mt-10 flex flex-col items-center gap-4 sm:flex-row"
         >
-          <Button size="lg" asChild>
+          <Button size="default" className="h-12 px-7 text-[15px]" asChild>
             <Link href="/contact">
               Book a Demo
               <ArrowRight className="h-4 w-4" />
             </Link>
           </Button>
-          <Button size="lg" variant="secondary" asChild>
+          <Button size="default" variant="secondary" className="h-12 px-7 text-[15px]" asChild>
             <Link href="/features">
               <PlayCircle className="h-4 w-4" />
               Explore Features
@@ -80,7 +82,7 @@ export function Hero() {
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.7, delay: 0.4 }}
-          className="relative mt-20 w-full max-w-5xl"
+          className="relative mt-20 w-full max-w-[72rem]"
         >
           <DashboardMockup />
         </motion.div>
@@ -114,12 +116,32 @@ export function Hero() {
 function DashboardMockup() {
   return (
     <div className="relative">
-      <div className="glass glow-soft relative overflow-hidden rounded-3xl p-2 sm:p-3">
-        <div className="overflow-hidden rounded-[1.25rem] border border-border/60 bg-surface">
+      <div className="glass glow-soft relative overflow-hidden rounded-[2.5rem] p-2 sm:p-3">
+        <div className="overflow-hidden rounded-[2rem] border border-border/60 bg-surface">
           <div className="flex items-center gap-1.5 border-b border-border/60 bg-white/60 px-4 py-3">
             <span className="h-2.5 w-2.5 rounded-full bg-red-300" />
             <span className="h-2.5 w-2.5 rounded-full bg-amber-300" />
             <span className="h-2.5 w-2.5 rounded-full bg-emerald-300" />
+          </div>
+
+          <div className="hidden items-center justify-between gap-4 border-b border-border/60 px-6 py-3.5 sm:flex">
+            <div>
+              <p className="text-sm font-semibold text-foreground">Overview</p>
+              <p className="text-xs text-muted-foreground">Tuesday, August 12</p>
+            </div>
+            <div className="flex flex-1 items-center gap-2 rounded-full border border-border/60 bg-slate-50 px-3.5 py-2 text-xs text-muted-foreground">
+              <Search className="h-3.5 w-3.5" />
+              Search patients, appointments...
+            </div>
+            <div className="flex items-center gap-3">
+              <span className="relative flex h-8 w-8 items-center justify-center rounded-full border border-border/60 text-muted-foreground">
+                <Bell className="h-3.5 w-3.5" />
+                <span className="absolute right-1.5 top-1.5 h-1.5 w-1.5 rounded-full bg-accent" />
+              </span>
+              <span className="flex h-8 w-8 items-center justify-center rounded-full bg-gradient-to-br from-primary to-accent text-xs font-semibold text-white">
+                AS
+              </span>
+            </div>
           </div>
 
           <div className="grid grid-cols-1 gap-4 p-5 sm:grid-cols-[220px_1fr] sm:p-6">
@@ -128,7 +150,7 @@ function DashboardMockup() {
                 (item, i) => (
                   <div
                     key={item}
-                    className={`rounded-xl px-3 py-2.5 text-left text-sm font-medium ${
+                    className={`rounded-[2rem] px-3 py-2.5 text-left text-sm font-medium ${
                       i === 0
                         ? "bg-gradient-to-r from-primary/12 to-accent/10 text-primary"
                         : "text-muted-foreground"
@@ -149,7 +171,7 @@ function DashboardMockup() {
                 ].map((card) => (
                   <div
                     key={card.label}
-                    className="rounded-2xl border border-border/60 bg-gradient-to-br from-white to-slate-50 p-4 text-left"
+                    className="rounded-xl border border-border/60 bg-gradient-to-br from-white to-slate-50 p-4 text-left"
                   >
                     <card.icon className="h-4 w-4 text-primary" />
                     <p className="mt-2.5 font-heading text-lg font-bold text-foreground">
@@ -160,12 +182,12 @@ function DashboardMockup() {
                 ))}
               </div>
 
-              <div className="flex-1 rounded-2xl border border-border/60 bg-gradient-to-br from-white to-slate-50 p-4 text-left">
+              <div className="flex-1 rounded-xl border border-border/60 bg-gradient-to-br from-white to-slate-50 p-4 text-left">
                 <div className="flex items-center justify-between">
                   <p className="text-sm font-semibold text-foreground">Patient Flow</p>
                   <Badge>+18.2%</Badge>
                 </div>
-                <div className="mt-4 flex h-24 items-end gap-2">
+                <div className="mt-4 flex h-36 items-end gap-2">
                   {[40, 65, 45, 80, 60, 95, 70, 55, 85, 65, 90, 75].map((h, i) => (
                     <div
                       key={i}
@@ -173,6 +195,10 @@ function DashboardMockup() {
                       style={{ height: `${h}%` }}
                     />
                   ))}
+                </div>
+                <div className="mt-4 flex items-center justify-between border-t border-border/60 pt-3 text-xs text-muted-foreground">
+                  <span>Last 12 weeks</span>
+                  <span className="font-medium text-foreground">Avg. 68 visits/day</span>
                 </div>
               </div>
             </div>
@@ -190,7 +216,7 @@ function DashboardMockup() {
             <Stethoscope className="h-4 w-4" />
           </span>
           <div>
-            <p className="text-xs font-semibold text-foreground">Dr. Amelia Carter</p>
+            <p className="text-xs font-semibold text-foreground">Dr. Anamika Sharma</p>
             <p className="text-[11px] text-muted-foreground">Consultation confirmed</p>
           </div>
         </div>
@@ -199,7 +225,7 @@ function DashboardMockup() {
       <motion.div
         animate={{ y: [0, 14, 0] }}
         transition={{ duration: 7, repeat: Infinity, ease: "easeInOut", delay: 0.5 }}
-        className="glass glow-soft absolute -right-6 bottom-14 hidden w-56 rounded-2xl p-4 text-left sm:block lg:-right-16"
+        className="glass glow-soft absolute -right-6 bottom-14 hidden w-52 rounded-lg p-4 text-left sm:block lg:-right-16"
       >
         <p className="text-xs font-semibold text-foreground">Prescription sent</p>
         <p className="mt-1 text-[11px] text-muted-foreground">

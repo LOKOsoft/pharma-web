@@ -12,7 +12,7 @@ export function ProductFeatures() {
       <SectionHeading
         eyebrow="Product"
         title="Every tool your team needs, in one platform"
-        description="From the front desk to the pharmacy, NineDoctor replaces scattered spreadsheets and legacy software with one connected system."
+        description="From the front desk to the pharmacy, 9Doctor replaces scattered spreadsheets and legacy software with one connected system."
       />
 
       <RevealGroup

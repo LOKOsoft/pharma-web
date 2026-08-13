@@ -6,7 +6,7 @@ export const testimonials: Testimonial[] = [
     role: "Chief Medical Officer",
     organization: "Northbridge General Hospital",
     quote:
-      "NineDoctor cut our administrative overhead in half. Our doctors spend more time with patients and less time fighting software.",
+      "9Doctor cut our administrative overhead in half. Our doctors spend more time with patients and less time fighting software.",
     avatar: "/avatars/amelia-carter.svg",
     rating: 5,
   },
@@ -33,7 +33,7 @@ export const testimonials: Testimonial[] = [
     role: "Pediatrician",
     organization: "Sunrise Children's Clinic",
     quote:
-      "Parents love the online booking and reminders. No-shows dropped by 40% in our first two months on NineDoctor.",
+      "Parents love the online booking and reminders. No-shows dropped by 40% in our first two months on 9Doctor.",
     avatar: "/avatars/elena-rossi.svg",
     rating: 5,
   },

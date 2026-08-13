@@ -19,7 +19,7 @@ import { siteConfig } from "@/lib/site";
 export const metadata: Metadata = {
   title: "Trust & Security",
   description:
-    "How NineDoctor protects patient data — HIPAA alignment, encryption, SOC 2-certified infrastructure, access controls, and audit logging.",
+    "How 9Doctor protects patient data — HIPAA alignment, encryption, SOC 2-certified infrastructure, access controls, and audit logging.",
   alternates: { canonical: "/trust" },
 };
 
@@ -35,7 +35,7 @@ export default function TrustPage() {
       <PageHero
         eyebrow="Trust & Security"
         title="Built to earn your compliance team's trust"
-        description="Patient data deserves more than a privacy policy. Here's exactly how NineDoctor protects it, end to end."
+        description="Patient data deserves more than a privacy policy. Here's exactly how 9Doctor protects it, end to end."
       />
 
       <Section>

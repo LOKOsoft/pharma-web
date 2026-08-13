@@ -10,7 +10,7 @@ import { siteConfig } from "@/lib/site";
 export const metadata: Metadata = {
   title: "Solutions",
   description:
-    "NineDoctor tailored for hospitals, clinics, doctors, receptionists, and pharmacists — one platform, built for how each role actually works.",
+    "9Doctor tailored for hospitals, clinics, doctors, receptionists, and pharmacists — one platform, built for how each role actually works.",
   alternates: { canonical: "/solutions" },
 };
 
@@ -26,7 +26,7 @@ export default function SolutionsPage() {
       <PageHero
         eyebrow="Solutions"
         title="Built for every role in modern healthcare"
-        description="Whether you run a single clinic or a multi-location hospital network, NineDoctor adapts to how your team actually works."
+        description="Whether you run a single clinic or a multi-location hospital network, 9Doctor adapts to how your team actually works."
       />
       <SolutionsGrid />
       <Workflow />
