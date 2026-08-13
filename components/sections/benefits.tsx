@@ -8,7 +8,7 @@ export function Benefits() {
   return (
     <Section>
       <SectionHeading
-        eyebrow="Why Pharma Plus"
+        eyebrow="Why NineDoctor"
         title="Built different from traditional healthcare software"
         description="We obsessed over speed, security, and design so your team gets software that feels like a modern product, not a legacy system."
       />

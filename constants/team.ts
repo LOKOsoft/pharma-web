@@ -7,7 +7,7 @@ export const team = [
   {
     name: "Isabelle Moreau",
     role: "Co-Founder & CTO",
-    bio: "Ex-Stripe engineer who led payments infrastructure before building the Pharma Plus platform.",
+    bio: "Ex-Stripe engineer who led payments infrastructure before building the NineDoctor platform.",
   },
   {
     name: "Dr. Kavya Nair",
@@ -22,7 +22,7 @@ export const team = [
   {
     name: "Grace Okonkwo",
     role: "VP of Customer Success",
-    bio: "Leads onboarding and support for over 2,400 healthcare providers on Pharma Plus.",
+    bio: "Leads onboarding and support for over 2,400 healthcare providers on NineDoctor.",
   },
   {
     name: "Daniel Kessler",

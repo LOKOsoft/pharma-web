@@ -6,7 +6,7 @@ import { siteConfig } from "@/lib/site";
 export const metadata: Metadata = {
   title: "Terms of Service",
   description:
-    "Read the Pharma Plus Terms of Service governing use of our Doctor & Patient Management System platform.",
+    "Read the NineDoctor Terms of Service governing use of our Doctor & Patient Management System platform.",
   alternates: { canonical: "/terms" },
 };
 
@@ -14,13 +14,13 @@ const sections = [
   {
     heading: "1. Acceptance of Terms",
     body: [
-      "By accessing or using Pharma Plus, you agree to be bound by these Terms of Service and our Privacy Policy. If you are using the platform on behalf of an organization, you represent that you have authority to bind that organization.",
+      "By accessing or using NineDoctor, you agree to be bound by these Terms of Service and our Privacy Policy. If you are using the platform on behalf of an organization, you represent that you have authority to bind that organization.",
     ],
   },
   {
     heading: "2. Description of Service",
     body: [
-      "Pharma Plus provides a Doctor & Patient Management System including appointment scheduling, patient records, digital prescriptions, billing, inventory management, and telemedicine tools, offered on a subscription basis.",
+      "NineDoctor provides a Doctor & Patient Management System including appointment scheduling, patient records, digital prescriptions, billing, inventory management, and telemedicine tools, offered on a subscription basis.",
     ],
   },
   {
@@ -38,13 +38,13 @@ const sections = [
   {
     heading: "5. Acceptable Use",
     body: [
-      "You agree not to misuse the platform, including attempting unauthorized access, interfering with service integrity, or using Pharma Plus to store or transmit unlawful content.",
+      "You agree not to misuse the platform, including attempting unauthorized access, interfering with service integrity, or using NineDoctor to store or transmit unlawful content.",
     ],
   },
   {
     heading: "6. Data Ownership & Compliance",
     body: [
-      "You retain ownership of all patient and organizational data you input into Pharma Plus. Where applicable, we act as a business associate under HIPAA and will execute a Business Associate Agreement (BAA) with covered entities upon request.",
+      "You retain ownership of all patient and organizational data you input into NineDoctor. Where applicable, we act as a business associate under HIPAA and will execute a Business Associate Agreement (BAA) with covered entities upon request.",
     ],
   },
   {
@@ -62,7 +62,7 @@ const sections = [
   {
     heading: "9. Limitation of Liability",
     body: [
-      "To the maximum extent permitted by law, Pharma Plus shall not be liable for indirect, incidental, or consequential damages arising from use of the platform.",
+      "To the maximum extent permitted by law, NineDoctor shall not be liable for indirect, incidental, or consequential damages arising from use of the platform.",
     ],
   },
   {
@@ -78,7 +78,7 @@ export default function TermsPage() {
     <LegalContent
       title="Terms of Service"
       updated="July 1, 2026"
-      intro="These Terms of Service govern your access to and use of Pharma Plus. Please read them carefully — they contain important information about your rights and obligations as a customer."
+      intro="These Terms of Service govern your access to and use of NineDoctor. Please read them carefully — they contain important information about your rights and obligations as a customer."
       sections={sections}
     />
   );

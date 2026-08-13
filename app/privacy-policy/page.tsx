@@ -6,7 +6,7 @@ import { siteConfig } from "@/lib/site";
 export const metadata: Metadata = {
   title: "Privacy Policy",
   description:
-    "Read the Pharma Plus Privacy Policy to understand how we collect, use, and protect your data and your patients' data.",
+    "Read the NineDoctor Privacy Policy to understand how we collect, use, and protect your data and your patients' data.",
   alternates: { canonical: "/privacy-policy" },
 };
 
@@ -15,20 +15,20 @@ const sections = [
     heading: "1. Information We Collect",
     body: [
       "We collect information you provide directly, such as when you create an account, book a demo, or contact our support team — including your name, email address, organization, and role.",
-      "When your organization uses Pharma Plus, we process protected health information (PHI) and other patient data on your behalf as a service provider, strictly in accordance with your instructions and applicable healthcare privacy laws.",
+      "When your organization uses NineDoctor, we process protected health information (PHI) and other patient data on your behalf as a service provider, strictly in accordance with your instructions and applicable healthcare privacy laws.",
     ],
   },
   {
     heading: "2. How We Use Information",
     body: [
-      "We use collected information to provide, maintain, and improve the Pharma Plus platform, to communicate with you about your account, and to provide customer support.",
+      "We use collected information to provide, maintain, and improve the NineDoctor platform, to communicate with you about your account, and to provide customer support.",
       "We do not sell personal information or patient data to third parties, and we never use patient health data for advertising purposes.",
     ],
   },
   {
     heading: "3. Data Security",
     body: [
-      "Pharma Plus employs industry-standard security measures including encryption in transit and at rest, role-based access controls, regular security audits, and continuous monitoring.",
+      "NineDoctor employs industry-standard security measures including encryption in transit and at rest, role-based access controls, regular security audits, and continuous monitoring.",
       "Our infrastructure is hosted in SOC 2-certified data centers, and our practices are designed to align with HIPAA requirements for covered entities and business associates.",
     ],
   },
@@ -69,7 +69,7 @@ export default function PrivacyPolicyPage() {
     <LegalContent
       title="Privacy Policy"
       updated="July 1, 2026"
-      intro="This Privacy Policy explains how Pharma Plus collects, uses, and safeguards information when you use our website and platform. We built Pharma Plus to handle sensitive healthcare data responsibly, and this policy reflects that commitment."
+      intro="This Privacy Policy explains how NineDoctor collects, uses, and safeguards information when you use our website and platform. We built NineDoctor to handle sensitive healthcare data responsibly, and this policy reflects that commitment."
       sections={sections}
     />
   );

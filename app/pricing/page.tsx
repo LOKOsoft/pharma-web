@@ -10,7 +10,7 @@ import { faqItems } from "@/constants/faq";
 export const metadata: Metadata = {
   title: "Pricing",
   description:
-    "Simple, transparent pricing for Pharma Plus. Plans for independent doctors, growing clinics, and enterprise hospital networks — all with a 14-day free trial.",
+    "Simple, transparent pricing for NineDoctor. Plans for independent doctors, growing clinics, and enterprise hospital networks — all with a 14-day free trial.",
   alternates: { canonical: "/pricing" },
 };
 

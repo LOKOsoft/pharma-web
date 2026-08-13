@@ -51,7 +51,7 @@ export function Hero() {
           transition={{ duration: 0.7, delay: 0.2 }}
           className="mt-6 max-w-2xl text-balance text-lg leading-relaxed text-muted-foreground sm:text-xl"
         >
-          Pharma Plus unifies appointments, records, prescriptions, billing, and telemedicine
+          NineDoctor unifies appointments, records, prescriptions, billing, and telemedicine
           into one intelligent platform — built for hospitals, clinics, and the people who run
           them.
         </motion.p>

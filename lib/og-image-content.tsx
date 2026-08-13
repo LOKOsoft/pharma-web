@@ -88,7 +88,7 @@ export function OgImageContent() {
             letterSpacing: -1.5,
           }}
         >
-          Pharma Plus
+          NineDoctor
         </div>
       </div>
 

@@ -1,9 +1,9 @@
 export const siteConfig = {
-  name: "Pharma Plus",
+  name: "NineDoctor",
   tagline: "The operating system for modern healthcare",
   description:
-    "Pharma Plus is an intelligent Doctor & Patient Management System that helps hospitals, clinics, doctors, receptionists, pharmacists, and patients manage healthcare digitally — appointments, records, prescriptions, billing, and more, in one elegant platform.",
-  url: "https://pharmaplus.health",
+    "NineDoctor is an intelligent Doctor & Patient Management System that helps hospitals, clinics, doctors, receptionists, pharmacists, and patients manage healthcare digitally — appointments, records, prescriptions, billing, and more, in one elegant platform.",
+  url: "https://ninedoctor.health",
   keywords: [
     "healthcare software",
     "hospital management system",
@@ -17,15 +17,15 @@ export const siteConfig = {
     "medical billing software",
   ],
   links: {
-    twitter: "https://twitter.com/pharmaplus",
-    linkedin: "https://linkedin.com/company/pharmaplus",
-    instagram: "https://instagram.com/pharmaplus",
-    facebook: "https://facebook.com/pharmaplus",
-    youtube: "https://youtube.com/@pharmaplus",
+    twitter: "https://twitter.com/ninedoctor",
+    linkedin: "https://linkedin.com/company/ninedoctor",
+    instagram: "https://instagram.com/ninedoctor",
+    facebook: "https://facebook.com/ninedoctor",
+    youtube: "https://youtube.com/@ninedoctor",
   },
   contact: {
-    email: "hello@pharmaplus.health",
-    supportEmail: "support@pharmaplus.health",
+    email: "hello@ninedoctor.health",
+    supportEmail: "support@ninedoctor.health",
     phone: "+1 (415) 555-0142",
     address: "548 Market Street, Suite 62480, San Francisco, CA 94104",
   },

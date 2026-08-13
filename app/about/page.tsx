@@ -14,7 +14,7 @@ import { siteConfig } from "@/lib/site";
 export const metadata: Metadata = {
   title: "About Us",
   description:
-    "Pharma Plus was founded to bring premium, modern software to healthcare. Learn about our mission, values, and the team building the future of patient care.",
+    "NineDoctor was founded to bring premium, modern software to healthcare. Learn about our mission, values, and the team building the future of patient care.",
   alternates: { canonical: "/about" },
 };
 
@@ -30,7 +30,7 @@ export default function AboutPage() {
       <PageHero
         eyebrow="About Us"
         title="Modernizing healthcare, one clinic at a time"
-        description="We started Pharma Plus because healthcare software deserved better. Today, thousands of providers trust us to run their practice."
+        description="We started NineDoctor because healthcare software deserved better. Today, thousands of providers trust us to run their practice."
       />
 
       <Section>
@@ -38,14 +38,14 @@ export default function AboutPage() {
           <Reveal direction="right">
             <SectionHeading eyebrow="Our Story" title="From frustration to a better way" align="left" />
             <p className="mt-6 text-base leading-relaxed text-muted-foreground">
-              Pharma Plus began in 2019 when our founders — an ER physician and a former Stripe
+              NineDoctor began in 2019 when our founders — an ER physician and a former Stripe
               engineer — watched a hospital lose hours every day to disconnected spreadsheets,
               paper charts, and legacy software that fought its users at every turn.
             </p>
             <p className="mt-4 text-base leading-relaxed text-muted-foreground">
               We set out to build something different: healthcare software with the polish of the
               best consumer products, engineered with the rigor that patient data demands. Today,
-              Pharma Plus powers appointments, records, prescriptions, and billing for thousands
+              NineDoctor powers appointments, records, prescriptions, and billing for thousands
               of providers across 14 countries.
             </p>
           </Reveal>

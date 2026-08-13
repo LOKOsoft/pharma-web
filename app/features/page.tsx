@@ -11,7 +11,7 @@ import { siteConfig } from "@/lib/site";
 export const metadata: Metadata = {
   title: "Features",
   description:
-    "Explore every feature of Pharma Plus — appointment management, doctor dashboards, digital prescriptions, billing, inventory, lab reports, telemedicine, and more.",
+    "Explore every feature of NineDoctor — appointment management, doctor dashboards, digital prescriptions, billing, inventory, lab reports, telemedicine, and more.",
   alternates: { canonical: "/features" },
 };
 
@@ -27,7 +27,7 @@ export default function FeaturesPage() {
       <PageHero
         eyebrow="Features"
         title="Everything your practice needs, thoughtfully designed"
-        description="Pharma Plus brings scheduling, records, prescriptions, billing, and telemedicine together into one platform your entire team will actually enjoy using."
+        description="NineDoctor brings scheduling, records, prescriptions, billing, and telemedicine together into one platform your entire team will actually enjoy using."
       />
       <FeatureHighlights items={featureHighlights} />
       <ProductFeatures />

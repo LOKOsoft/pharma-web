@@ -30,7 +30,7 @@ export function Navbar() {
   return (
     <header
       className={cn(
-        "sticky top-0 z-50 w-full transition-all duration-300",
+        "w-full transition-all duration-300",
         scrolled ? "glass-nav border-b border-border/60 shadow-sm" : "bg-transparent"
       )}
     >
