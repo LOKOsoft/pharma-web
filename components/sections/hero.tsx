@@ -82,7 +82,7 @@ export function Hero() {
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.7, delay: 0.4 }}
-          className="relative mt-20 w-full max-w-[72rem]"
+          className="relative mt-20 flex w-full max-w-[88rem] flex-col gap-8"
         >
           <DashboardMockup />
         </motion.div>
@@ -113,7 +113,7 @@ export function Hero() {
   );
 }
 
-function DashboardMockup() {
+export function DashboardMockup() {
   return (
     <div className="relative">
       <div className="glass glow-soft relative overflow-hidden rounded-[2.5rem] p-2 sm:p-3">
@@ -126,7 +126,7 @@ function DashboardMockup() {
 
           <div className="hidden items-center justify-between gap-4 border-b border-border/60 px-6 py-3.5 sm:flex">
             <div>
-              <p className="text-sm font-semibold text-foreground">Overview</p>
+              <p className="text-sm font-semibold text-foreground">Overview Dashboard</p>
               <p className="text-xs text-muted-foreground">Tuesday, August 12</p>
             </div>
             <div className="flex flex-1 items-center gap-2 rounded-full border border-border/60 bg-slate-50 px-3.5 py-2 text-xs text-muted-foreground">

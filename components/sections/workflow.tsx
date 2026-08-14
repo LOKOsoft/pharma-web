@@ -12,7 +12,7 @@ export function Workflow() {
         description="A seamless workflow designed around the patient journey — connecting every team member along the way."
       />
 
-      <RevealGroup className="relative mt-16 grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-5">
+      <RevealGroup className="relative mt-20 grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-5">
         <div className="pointer-events-none absolute left-0 right-0 top-[3.25rem] hidden h-px bg-gradient-to-r from-transparent via-border to-transparent lg:block" />
         {workflowSteps.map((step) => (
           <RevealItem key={step.number} direction="up" className="relative flex flex-col items-center text-center">

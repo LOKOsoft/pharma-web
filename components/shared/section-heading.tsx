@@ -8,6 +8,7 @@ export interface SectionHeadingProps {
   description?: string;
   align?: "center" | "left";
   className?: string;
+  titleClassName?: string;
 }
 
 export function SectionHeading({
@@ -16,6 +17,7 @@ export function SectionHeading({
   description,
   align = "center",
   className,
+  titleClassName,
 }: SectionHeadingProps) {
   return (
     <div
@@ -34,7 +36,8 @@ export function SectionHeading({
         <h2
           className={cn(
             "font-heading text-3xl font-bold tracking-tight text-foreground sm:text-4xl lg:text-[2.75rem]",
-            align === "center" && "max-w-2xl"
+            align === "center" && "max-w-2xl",
+            titleClassName
           )}
         >
           {title}

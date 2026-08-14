@@ -14,10 +14,17 @@ import { Logo } from "@/components/shared/logo";
 export function Navbar() {
   const pathname = usePathname();
   const [scrolled, setScrolled] = React.useState(false);
+  const [hidden, setHidden] = React.useState(false);
   const [open, setOpen] = React.useState(false);
+  const lastY = React.useRef(0);
 
   React.useEffect(() => {
-    const onScroll = () => setScrolled(window.scrollY > 12);
+    const onScroll = () => {
+      const y = window.scrollY;
+      setScrolled(y > 12);
+      setHidden(y > lastY.current && y > 80);
+      lastY.current = y;
+    };
     onScroll();
     window.addEventListener("scroll", onScroll, { passive: true });
     return () => window.removeEventListener("scroll", onScroll);
@@ -28,7 +35,12 @@ export function Navbar() {
   }, [pathname]);
 
   return (
-    <header className="sticky top-4 z-50 w-full px-5 sm:top-5 sm:px-8 lg:px-10">
+    <header
+      className={cn(
+        "sticky top-4 z-50 w-full px-5 transition-transform duration-500 ease-in-out sm:top-5 sm:px-8 lg:px-10",
+        hidden && !open && "-translate-y-[calc(100%+2rem)]"
+      )}
+    >
       <div
         className={cn(
           "glass-nav mx-auto grid h-[4rem] max-w-7xl grid-cols-[1fr_auto_1fr] items-center rounded-full border border-white/40 px-4 shadow-[0_8px_32px_-12px_rgba(15,23,42,0.18)] transition-all duration-300 sm:px-6",
@@ -62,7 +74,7 @@ export function Navbar() {
           })}
         </nav>
 
-        <div className="flex items-center justify-self-end">
+        <div className="flex items-center justify-self-end sm:-mr-3.5">
           <div className="hidden items-center gap-3 lg:flex">
             <Button variant="ghost" size="default" asChild>
               <Link href="/contact">Login</Link>
