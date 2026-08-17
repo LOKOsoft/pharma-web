@@ -9,6 +9,9 @@ import {
   BarChart3,
   Video,
   BellRing,
+  Smartphone,
+  ClipboardList,
+  CreditCard,
 } from "lucide-react";
 import type { FeatureItem } from "@/types";
 
@@ -72,5 +75,32 @@ export const productFeatures: FeatureItem[] = [
     title: "Smart Notifications",
     description:
       "Automated SMS, email, and push alerts for appointments, refills, lab results, and billing reminders.",
+  },
+];
+
+export const patientFeatures: FeatureItem[] = [
+  {
+    icon: Smartphone,
+    title: "Book in Seconds",
+    description:
+      "Patients pick a doctor, see real-time availability, and confirm a slot without a single phone call.",
+  },
+  {
+    icon: ClipboardList,
+    title: "Health Records On Hand",
+    description:
+      "Visit history, prescriptions, and lab reports, always available from any device.",
+  },
+  {
+    icon: BellRing,
+    title: "Timely Reminders",
+    description:
+      "Automated SMS and email nudges before every visit, refill, and follow-up.",
+  },
+  {
+    icon: CreditCard,
+    title: "Simple Payments",
+    description:
+      "Clear, itemized bills with online payment, no more confusing paper receipts.",
   },
 ];

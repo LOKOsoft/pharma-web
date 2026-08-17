@@ -4,9 +4,9 @@ export const pricingPlans: PricingPlan[] = [
   {
     name: "Starter",
     description: "For independent doctors and small clinics getting started.",
-    monthlyPrice: 3999,
-    yearlyPrice: 3199,
-    cta: "Start Free Trial",
+    monthlyPrice: 499,
+    yearlyPrice: 399,
+    cta: "Get Started",
     features: [
       "Up to 2 doctors",
       "Appointment management",
@@ -19,10 +19,10 @@ export const pricingPlans: PricingPlan[] = [
   {
     name: "Growth",
     description: "For growing clinics and multi-doctor practices.",
-    monthlyPrice: 9999,
-    yearlyPrice: 7999,
+    monthlyPrice: 699,
+    yearlyPrice: 559,
     popular: true,
-    cta: "Start Free Trial",
+    cta: "Get Started",
     features: [
       "Up to 15 doctors",
       "Everything in Starter",
@@ -36,8 +36,9 @@ export const pricingPlans: PricingPlan[] = [
   {
     name: "Enterprise",
     description: "For hospitals and large healthcare networks.",
-    monthlyPrice: 24999,
-    yearlyPrice: 19999,
+    monthlyPrice: 999,
+    yearlyPrice: 799,
+    custom: true,
     cta: "Contact Sales",
     features: [
       "Unlimited doctors",

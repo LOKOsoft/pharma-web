@@ -22,6 +22,10 @@
   --card: #ffffff;
   --card-foreground: #0f172a;
 
+  --navy: #0f172a;
+  --navy-foreground: #ffffff;
+  --navy-muted: #94a3b8;
+
   --radius: 1.25rem;
 
   --font-heading: var(--font-manrope);
@@ -49,6 +53,10 @@
 
   --color-card: var(--card);
   --color-card-foreground: var(--card-foreground);
+
+  --color-navy: var(--navy);
+  --color-navy-foreground: var(--navy-foreground);
+  --color-navy-muted: var(--navy-muted);
 
   --radius-sm: calc(var(--radius) - 0.5rem);
   --radius-md: calc(var(--radius) - 0.25rem);

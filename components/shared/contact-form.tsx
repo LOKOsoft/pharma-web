@@ -83,7 +83,7 @@ export function ContactForm() {
             <Label htmlFor="fullName">Full name</Label>
             <Input
               id="fullName"
-              placeholder="Dr. Amelia Carter"
+              placeholder="Dr. Ananya Bose"
               aria-invalid={!!errors.fullName}
               {...register("fullName")}
             />

@@ -22,9 +22,9 @@ export const faqItems: FAQItem[] = [
       "Yes. Growth and Enterprise plans support multi-location management from a single dashboard, with location-level permissions, reporting, and inventory tracking.",
   },
   {
-    question: "What does the free trial include?",
+    question: "Can I switch plans later?",
     answer:
-      "The 14-day free trial gives you full access to all features on the Growth plan — no credit card required. You can invite your team and explore every workflow before committing.",
+      "Yes. You can upgrade or downgrade your plan at any time as your practice grows, with prorated billing and no long-term lock-in.",
   },
   {
     question: "Can patients access 9Doctor directly?",

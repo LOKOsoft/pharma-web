@@ -13,7 +13,7 @@ export function Workflow() {
       />
 
       <RevealGroup className="relative mt-20 grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-5">
-        <div className="pointer-events-none absolute left-0 right-0 top-[3.25rem] hidden h-px bg-gradient-to-r from-transparent via-border to-transparent lg:block" />
+        <div className="pointer-events-none absolute left-0 right-0 top-8 hidden h-px bg-gradient-to-r from-transparent via-border to-transparent lg:block" />
         {workflowSteps.map((step) => (
           <RevealItem key={step.number} direction="up" className="relative flex flex-col items-center text-center">
             <div className="relative flex h-16 w-16 items-center justify-center rounded-2xl border border-border/70 bg-surface shadow-[0_8px_24px_-12px_rgba(15,23,42,0.15)]">

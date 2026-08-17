@@ -3,7 +3,7 @@ import * as React from "react";
 import { cn } from "@/lib/utils";
 
 export interface GradientBackgroundProps extends React.HTMLAttributes<HTMLDivElement> {
-  variant?: "hero" | "section" | "cta";
+  variant?: "hero" | "section" | "cta" | "navy";
 }
 
 function GradientBackground({
@@ -32,6 +32,13 @@ function GradientBackground({
       )}
       {variant === "cta" && (
         <div className="absolute inset-0 bg-gradient-to-br from-primary via-secondary to-accent bg-[length:200%_200%] animate-gradient-move" />
+      )}
+      {variant === "navy" && (
+        <>
+          <div className="absolute inset-0 bg-gradient-to-br from-navy via-navy to-[#132038]" />
+          <div className="absolute -right-16 top-1/2 h-72 w-72 -translate-y-1/2 rounded-full bg-accent/15 blur-3xl animate-float-slow" />
+          <div className="absolute -left-16 bottom-0 h-56 w-56 rounded-full bg-primary/20 blur-3xl animate-float" />
+        </>
       )}
     </div>
   );

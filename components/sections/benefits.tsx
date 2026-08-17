@@ -19,7 +19,7 @@ export function Benefits() {
       >
         {benefits.map((benefit) => (
           <RevealItem key={benefit.title} direction="up">
-            <GlassCard className="h-full">
+            <GlassCard className="h-full rounded-xl hover:shadow-[0_20px_60px_-15px_rgba(74,222,128,0.35)]">
               <div className="flex h-11 w-11 items-center justify-center rounded-2xl bg-gradient-to-br from-primary/12 to-accent/12 text-primary">
                 <benefit.icon className="h-5 w-5" strokeWidth={1.75} />
               </div>

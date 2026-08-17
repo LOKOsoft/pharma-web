@@ -113,7 +113,7 @@ export function Hero() {
   );
 }
 
-export function DashboardMockup() {
+export function DashboardMockup({ floatingCards = true }: { floatingCards?: boolean } = {}) {
   return (
     <div className="relative">
       <div className="glass glow-soft relative overflow-hidden rounded-[2.5rem] p-2 sm:p-3">
@@ -187,7 +187,7 @@ export function DashboardMockup() {
                   <p className="text-sm font-semibold text-foreground">Patient Flow</p>
                   <Badge>+18.2%</Badge>
                 </div>
-                <div className="mt-4 flex h-36 items-end gap-2">
+                <div className="mt-4 flex h-40 items-end gap-2">
                   {[40, 65, 45, 80, 60, 95, 70, 55, 85, 65, 90, 75].map((h, i) => (
                     <div
                       key={i}
@@ -201,40 +201,62 @@ export function DashboardMockup() {
                   <span className="font-medium text-foreground">Avg. 68 visits/day</span>
                 </div>
               </div>
+
+              <div className="grid grid-cols-3 gap-3">
+                {[
+                  { label: "No-shows", value: "2.1%" },
+                  { label: "Avg. wait", value: "6m" },
+                  { label: "Satisfaction", value: "4.9/5" },
+                ].map((stat) => (
+                  <div
+                    key={stat.label}
+                    className="rounded-xl border border-border/60 bg-gradient-to-br from-white to-slate-50 px-4 py-3 text-left"
+                  >
+                    <p className="font-heading text-base font-bold text-foreground">
+                      {stat.value}
+                    </p>
+                    <p className="text-xs text-muted-foreground">{stat.label}</p>
+                  </div>
+                ))}
+              </div>
             </div>
           </div>
         </div>
       </div>
 
-      <motion.div
-        animate={{ y: [0, -14, 0] }}
-        transition={{ duration: 6, repeat: Infinity, ease: "easeInOut" }}
-        className="glass glow-soft absolute -left-6 top-10 hidden w-52 rounded-2xl p-4 text-left sm:block lg:-left-16"
-      >
-        <div className="flex items-center gap-2">
-          <span className="flex h-8 w-8 items-center justify-center rounded-full bg-success/12 text-success">
-            <Stethoscope className="h-4 w-4" />
-          </span>
-          <div>
-            <p className="text-xs font-semibold text-foreground">Dr. Anamika Sharma</p>
-            <p className="text-[11px] text-muted-foreground">Consultation confirmed</p>
-          </div>
-        </div>
-      </motion.div>
+      {floatingCards && (
+        <>
+          <motion.div
+            animate={{ y: [0, -14, 0] }}
+            transition={{ duration: 6, repeat: Infinity, ease: "easeInOut" }}
+            className="glass glow-soft absolute -left-6 top-[140px] hidden w-52 rounded-2xl p-4 text-left sm:block lg:-left-16"
+          >
+            <div className="flex items-center gap-2">
+              <span className="flex h-8 w-8 items-center justify-center rounded-full bg-success/12 text-success">
+                <Stethoscope className="h-4 w-4" />
+              </span>
+              <div>
+                <p className="text-xs font-semibold text-foreground">Dr. Anamika Sharma</p>
+                <p className="text-[11px] text-muted-foreground">Consultation confirmed</p>
+              </div>
+            </div>
+          </motion.div>
 
-      <motion.div
-        animate={{ y: [0, 14, 0] }}
-        transition={{ duration: 7, repeat: Infinity, ease: "easeInOut", delay: 0.5 }}
-        className="glass glow-soft absolute -right-6 bottom-14 hidden w-52 rounded-lg p-4 text-left sm:block lg:-right-16"
-      >
-        <p className="text-xs font-semibold text-foreground">Prescription sent</p>
-        <p className="mt-1 text-[11px] text-muted-foreground">
-          Amoxicillin 500mg · Delivered to pharmacy
-        </p>
-        <div className="mt-2 h-1.5 w-full overflow-hidden rounded-full bg-primary/10">
-          <div className="h-full w-4/5 rounded-full bg-gradient-to-r from-primary to-accent" />
-        </div>
-      </motion.div>
+          <motion.div
+            animate={{ y: [0, 14, 0] }}
+            transition={{ duration: 7, repeat: Infinity, ease: "easeInOut", delay: 0.5 }}
+            className="glass glow-soft absolute -right-6 bottom-14 hidden w-52 rounded-lg p-4 text-left sm:block lg:-right-16"
+          >
+            <p className="text-xs font-semibold text-foreground">Prescription sent</p>
+            <p className="mt-1 text-[11px] text-muted-foreground">
+              Amoxicillin 500mg · Delivered to pharmacy
+            </p>
+            <div className="mt-2 h-1.5 w-full overflow-hidden rounded-full bg-primary/10">
+              <div className="h-full w-4/5 rounded-full bg-gradient-to-r from-primary to-accent" />
+            </div>
+          </motion.div>
+        </>
+      )}
     </div>
   );
 }

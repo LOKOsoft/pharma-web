@@ -1,11 +1,11 @@
 export const team = [
   {
-    name: "Dr. Nathan Reyes",
+    name: "Dr. Nikhil Reddy",
     role: "Co-Founder & CEO",
     bio: "Former ER physician turned product leader, obsessed with removing friction from clinical work.",
   },
   {
-    name: "Isabelle Moreau",
+    name: "Ishita Malhotra",
     role: "Co-Founder & CTO",
     bio: "Ex-Stripe engineer who led payments infrastructure before building the 9Doctor platform.",
   },
@@ -15,17 +15,17 @@ export const team = [
     bio: "Practicing internist advising every workflow decision from a real clinician's perspective.",
   },
   {
-    name: "Tomás Ferreira",
+    name: "Tarun Bhatt",
     role: "Head of Design",
     bio: "Previously at Linear and Framer, bringing consumer-grade craft to healthcare software.",
   },
   {
-    name: "Grace Okonkwo",
+    name: "Gauri Krishnan",
     role: "VP of Customer Success",
     bio: "Leads onboarding and support for over 2,400 healthcare providers on 9Doctor.",
   },
   {
-    name: "Daniel Kessler",
+    name: "Dev Chaudhary",
     role: "Head of Security",
     bio: "Former security architect at a major health insurer, responsible for HIPAA-aligned infrastructure.",
   },

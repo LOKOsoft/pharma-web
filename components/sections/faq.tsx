@@ -18,7 +18,7 @@ export function FAQ() {
         description="Everything you need to know about getting started with 9Doctor."
       />
 
-      <Reveal direction="up" className="mx-auto mt-14 max-w-3xl">
+      <Reveal direction="up" className="mx-auto mt-14 max-w-4xl">
         <Accordion type="single" collapsible className="flex flex-col gap-3">
           {faqItems.map((item, i) => (
             <AccordionItem key={item.question} value={`item-${i}`}>

@@ -24,6 +24,7 @@ export interface PricingPlan {
   monthlyPrice: number;
   yearlyPrice: number;
   popular?: boolean;
+  custom?: boolean;
   cta: string;
   features: string[];
 }

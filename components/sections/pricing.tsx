@@ -18,7 +18,7 @@ export function Pricing() {
       <SectionHeading
         eyebrow="Pricing"
         title="Simple, transparent pricing"
-        description="Choose the plan that fits your practice. Every plan includes a 14-day free trial, no credit card required."
+        description="Choose the plan that fits your practice."
       />
 
       <div className="mt-9 flex items-center justify-center gap-3">

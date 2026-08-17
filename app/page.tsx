@@ -3,7 +3,7 @@ import type { Metadata } from "next";
 import { Hero } from "@/components/sections/hero";
 import { TrustedBy } from "@/components/sections/trusted-by";
 import { ProductFeatures } from "@/components/sections/product-features";
-import { AppointmentBooking } from "@/components/sections/dashboard-showcase";
+import { PatientExperience } from "@/components/sections/patient-experience";
 import { Benefits } from "@/components/sections/benefits";
 import { Workflow } from "@/components/sections/workflow";
 import { Testimonials } from "@/components/sections/testimonials";
@@ -28,8 +28,8 @@ export default function Home() {
       <Hero />
       <TrustedBy />
       <ProductFeatures />
+      <PatientExperience />
       <Benefits />
-      <AppointmentBooking />
       <Workflow />
       <Testimonials />
       <Pricing />
