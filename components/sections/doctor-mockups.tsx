@@ -4,7 +4,6 @@ import * as React from "react";
 
 import {
   AlertTriangle,
-  CalendarCheck,
   CheckCircle2,
   FileSignature,
   Mic,
@@ -17,6 +16,7 @@ import {
 } from "lucide-react";
 
 import { DashboardMockup } from "@/components/sections/hero";
+import { cn } from "@/lib/utils";
 
 function MockupFrame({
   children,
@@ -47,8 +47,10 @@ function ScaledDashboard({ activeItem }: { activeItem?: string }) {
     const content = contentRef.current;
     if (!wrapper || !content) return;
 
+    const shadowMargin = 24;
+
     const update = () => {
-      const next = wrapper.offsetWidth / content.scrollWidth;
+      const next = (wrapper.offsetWidth - shadowMargin * 2) / content.scrollWidth;
       setScale(next);
     };
 
@@ -59,11 +61,11 @@ function ScaledDashboard({ activeItem }: { activeItem?: string }) {
   }, []);
 
   return (
-    <div ref={wrapperRef} className="relative h-full w-full overflow-hidden">
+    <div ref={wrapperRef} className="relative h-full w-full overflow-visible">
       <div
         ref={contentRef}
-        className="origin-top-left"
-        style={{ transform: `scale(${scale})`, width: "1200px" }}
+        className="absolute origin-top-left"
+        style={{ transform: `translate(24px, 24px) scale(${scale})`, width: "1200px" }}
       >
         <DashboardMockup floatingCards={false} activeItem={activeItem} />
       </div>
@@ -71,123 +73,16 @@ function ScaledDashboard({ activeItem }: { activeItem?: string }) {
   );
 }
 
-const WEEK = ["Mon", "Tue", "Wed", "Thu", "Fri", "Sat"];
-const TIME_SLOTS = ["09:00", "10:00", "11:00", "12:00", "14:00", "15:00"];
-const APPOINTMENTS: Record<string, { doctor: string; type: string; tone: "primary" | "accent" | "secondary" }> = {
-  "Mon-09:00": { doctor: "Dr. Mehta", type: "Consultation", tone: "primary" },
-  "Mon-10:00": { doctor: "Dr. Kapoor", type: "Follow-up", tone: "accent" },
-  "Tue-11:00": { doctor: "Dr. Iyer", type: "New patient", tone: "secondary" },
-  "Wed-09:00": { doctor: "Dr. Mehta", type: "Consultation", tone: "primary" },
-  "Wed-14:00": { doctor: "Dr. Sharma", type: "Procedure", tone: "accent" },
-  "Thu-10:00": { doctor: "Dr. Iyer", type: "Follow-up", tone: "secondary" },
-  "Thu-15:00": { doctor: "Dr. Kapoor", type: "New patient", tone: "primary" },
-  "Fri-09:00": { doctor: "Dr. Mehta", type: "Procedure", tone: "accent" },
-  "Fri-11:00": { doctor: "Dr. Sharma", type: "Consultation", tone: "secondary" },
-  "Sat-10:00": { doctor: "Dr. Iyer", type: "Follow-up", tone: "primary" },
-};
-
-const toneClasses: Record<string, string> = {
-  primary: "from-primary/90 to-primary/60 text-white",
-  accent: "from-accent/90 to-accent/60 text-white",
-  secondary: "from-secondary/90 to-secondary/60 text-white",
-};
-
-export function DashboardRowMockup({ activeItem }: { activeItem?: string } = {}) {
+export function DashboardRowMockup({
+  activeItem,
+  className,
+}: { activeItem?: string; className?: string } = {}) {
   return (
-    <div className="ml-auto aspect-[3/2] w-full max-w-[560px] min-h-[300px] overflow-hidden">
+    <div
+      className={cn("ml-auto aspect-[3/2] w-full max-w-[600px] min-h-[320px] overflow-visible", className)}
+    >
       <ScaledDashboard activeItem={activeItem} />
     </div>
-  );
-}
-
-const SIDEBAR_ITEMS = ["Overview", "Appointments", "Patients", "Prescriptions", "Billing"];
-
-export function AppointmentsRowMockup() {
-  return (
-    <div className="lg:w-[115%]">
-    <div className="glass glow-soft rounded-xl p-1.5">
-    <MockupFrame contentClassName="aspect-[3/2] w-full min-h-[250px]">
-      <div className="flex h-full">
-        <div className="hidden w-[92px] shrink-0 flex-col gap-1 border-r border-border/60 bg-muted/20 p-1.5 sm:flex">
-          {SIDEBAR_ITEMS.map((item, i) => (
-            <div
-              key={item}
-              className={`rounded-lg px-2 py-1 text-left text-[9px] font-medium ${
-                i === 1
-                  ? "bg-gradient-to-r from-primary/12 to-accent/10 text-primary"
-                  : "text-muted-foreground"
-              }`}
-            >
-              {item}
-            </div>
-          ))}
-        </div>
-        <div className="flex h-full flex-1 flex-col">
-          <div className="flex items-center justify-between border-b border-border/60 px-4 py-2">
-            <div className="flex items-center gap-1.5">
-              <CalendarCheck className="h-3.5 w-3.5 text-primary" strokeWidth={1.75} />
-              <p className="font-heading text-xs font-semibold text-foreground">Schedule · Aug 12 – Aug 17</p>
-            </div>
-            <div className="flex items-center gap-2 text-[9px] font-medium text-muted-foreground">
-              <span className="flex items-center gap-1">
-                <span className="h-1.5 w-1.5 rounded-full bg-primary" />
-                Confirmed
-              </span>
-              <span className="flex items-center gap-1">
-                <span className="h-1.5 w-1.5 rounded-full bg-accent" />
-                Procedure
-              </span>
-            </div>
-          </div>
-          <div className="grid flex-1 grid-cols-[48px_repeat(6,1fr)]">
-            <div className="border-r border-border/60 bg-muted/30" />
-            {WEEK.map((day) => (
-              <div
-                key={day}
-                className="border-b border-r border-border/60 px-1 py-1 text-center text-[9px] font-semibold text-muted-foreground"
-              >
-                {day}
-              </div>
-            ))}
-            {TIME_SLOTS.map((slot) => (
-              <SlotRow key={slot} slot={slot} />
-            ))}
-          </div>
-        </div>
-      </div>
-    </MockupFrame>
-    </div>
-    </div>
-  );
-}
-
-function SlotRow({ slot }: { slot: string }) {
-  return (
-    <>
-      <div className="border-b border-r border-border/60 px-1.5 py-2 text-[9px] font-medium text-muted-foreground">
-        {slot}
-      </div>
-      {WEEK.map((day) => {
-        const appt = APPOINTMENTS[`${day}-${slot}`];
-        return (
-          <div
-            key={`${day}-${slot}`}
-            className="border-b border-r border-border/60 px-1 py-1"
-          >
-            {appt ? (
-              <div
-                className={`rounded bg-gradient-to-br p-1 text-[8.5px] leading-tight shadow-sm ${toneClasses[appt.tone]}`}
-              >
-                <p className="truncate font-semibold">{appt.doctor}</p>
-                <p className="truncate opacity-90">{appt.type}</p>
-              </div>
-            ) : (
-              <div className="h-full min-h-[20px] w-full rounded border border-dashed border-border/60" />
-            )}
-          </div>
-        );
-      })}
-    </>
   );
 }
 
@@ -252,6 +147,8 @@ interface RxItem {
 const RX_ITEMS: RxItem[] = [
   { name: "Amoxicillin", dose: "500 mg", freq: "3× daily · 5 days" },
   { name: "Paracetamol", dose: "650 mg", freq: "As needed · max 4/day" },
+  { name: "Cetirizine", dose: "10 mg", freq: "Once daily · 7 days" },
+  { name: "Pantoprazole", dose: "40 mg", freq: "Once daily · before breakfast" },
 ];
 
 export function PrescriptionRowMockup() {
@@ -292,6 +189,12 @@ export function PrescriptionRowMockup() {
               <span className="text-[11px] font-semibold text-foreground">{item.dose}</span>
             </div>
           ))}
+          <button
+            type="button"
+            className="rounded-lg border border-dashed border-border/60 px-3 py-2 text-center text-[11px] font-medium text-muted-foreground"
+          >
+            + Add medication
+          </button>
         </div>
 
         <div className="mt-3 flex items-center justify-between gap-2 rounded-lg border border-amber-200/70 bg-amber-50/60 px-3 py-2">

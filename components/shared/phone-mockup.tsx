@@ -30,6 +30,9 @@ const BOOK_DOCTORS: DoctorRow[] = [
   { name: "Dr. Priya Iyer", specialty: "Pediatrics", slot: "Fri · 11:00 AM" },
 ];
 
+const BOOK_DAYS = ["Mon", "Tue", "Wed", "Thu", "Fri"];
+const BOOK_SLOTS = ["9:00 AM", "10:15 AM", "11:30 AM", "2:00 PM", "4:30 PM", "5:45 PM"];
+
 const RECORDS_RE = [
   { title: "Blood Test Report", meta: "Aug 12 · Ready" },
   { title: "Prescription Refill", meta: "Aug 5 · Sent" },
@@ -108,14 +111,6 @@ export function PhoneMockup({ variant = "home" }: PhoneMockupProps) {
               ))}
             </div>
 
-            {variant === "records" ? (
-              <div className="rounded-md border border-border/60 bg-white p-4 text-left shadow-[0_1px_2px_rgba(15,23,42,0.04)]">
-                <div className="flex items-center justify-between">
-                  <p className="text-sm font-semibold text-foreground">Recent records</p>
-                  <ChevronRight className="h-3.5 w-3.5 text-muted-foreground" />
-                </div>
-              </div>
-            ) : null}
           </div>
         </div>
 
@@ -202,30 +197,61 @@ function HomeCard() {
 }
 
 function BookCard() {
+  const doctor = BOOK_DOCTORS[0];
   return (
     <div className="rounded-md border border-border/60 bg-white p-4 text-left shadow-[0_1px_2px_rgba(15,23,42,0.04)]">
-      <div className="flex items-center justify-between">
-        <p className="text-sm font-semibold text-foreground">Pick a doctor</p>
-        <span className="text-[10px] font-medium text-muted-foreground">Today</span>
+      <div className="flex items-center gap-2.5">
+        <span className="flex h-9 w-9 items-center justify-center rounded-full bg-gradient-to-br from-primary/15 to-accent/15 text-primary">
+          <Stethoscope className="h-4 w-4" strokeWidth={1.75} />
+        </span>
+        <div>
+          <p className="text-sm font-semibold text-foreground">{doctor.name}</p>
+          <p className="text-[11px] text-muted-foreground">{doctor.specialty}</p>
+        </div>
       </div>
-      <div className="mt-3 flex flex-col divide-y divide-border/60">
-        {BOOK_DOCTORS.map((doc) => (
-          <div key={doc.name} className="flex items-center justify-between py-2.5 first:pt-0 last:pb-0">
-            <div className="flex items-center gap-2.5">
-              <span className="flex h-8 w-8 items-center justify-center rounded-full bg-gradient-to-br from-primary/15 to-accent/15 text-primary">
-                <Stethoscope className="h-3.5 w-3.5" strokeWidth={1.75} />
-              </span>
-              <div>
-                <p className="text-sm font-medium text-foreground">{doc.name}</p>
-                <p className="text-[11px] text-muted-foreground">{doc.specialty}</p>
-              </div>
-            </div>
-            <span className="rounded-full bg-primary/10 px-2 py-0.5 text-[10px] font-semibold text-primary">
-              {doc.slot.split(" · ")[0]}
-            </span>
+
+      <p className="mt-3.5 text-[10px] font-semibold uppercase tracking-wide text-muted-foreground">
+        Select day
+      </p>
+      <div className="mt-1.5 grid grid-cols-5 gap-1.5">
+        {BOOK_DAYS.map((day, i) => (
+          <div
+            key={day}
+            className={`rounded-md py-1.5 text-center text-[10.5px] font-medium ${
+              i === 1
+                ? "bg-primary text-white"
+                : "border border-border/60 text-muted-foreground"
+            }`}
+          >
+            {day}
           </div>
         ))}
       </div>
+
+      <p className="mt-3.5 text-[10px] font-semibold uppercase tracking-wide text-muted-foreground">
+        Select time
+      </p>
+      <div className="mt-1.5 grid grid-cols-3 gap-1.5">
+        {BOOK_SLOTS.map((slot, i) => (
+          <div
+            key={slot}
+            className={`rounded-md py-1.5 text-center text-[10.5px] font-medium ${
+              i === 2
+                ? "bg-primary text-white"
+                : "border border-border/60 text-muted-foreground"
+            }`}
+          >
+            {slot}
+          </div>
+        ))}
+      </div>
+
+      <button
+        type="button"
+        className="mt-3.5 inline-flex w-full items-center justify-center gap-1.5 rounded-md bg-primary px-3 py-2 text-[11px] font-semibold text-white"
+      >
+        Confirm booking
+      </button>
     </div>
   );
 }

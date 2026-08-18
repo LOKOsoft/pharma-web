@@ -24,7 +24,7 @@ export const productFeatures: FeatureItem[] = [
   },
   {
     icon: LayoutDashboard,
-    title: "Doctor Dashboard Overview",
+    title: "Doctor Dashboard",
     description:
       "A command center for clinicians — patient queue, history, and notes in one clean, distraction-free workspace.",
   },

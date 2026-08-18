@@ -2,10 +2,9 @@ import { Check } from "lucide-react";
 
 import { Section } from "@/components/ui/section";
 import { Reveal } from "@/components/shared/reveal";
-import {
-  AppointmentsRowMockup,
-  DashboardRowMockup,
-} from "@/components/sections/doctor-mockups";
+import { DashboardRowMockup } from "@/components/sections/doctor-mockups";
+import { FeatureTabs } from "@/components/sections/feature-tabs";
+import { PhoneMockup, type PhoneMockupVariant } from "@/components/shared/phone-mockup";
 import type { FeaturePageItem } from "@/constants/features-page";
 import { cn } from "@/lib/utils";
 
@@ -18,109 +17,124 @@ export function FeatureRows({ items }: FeatureRowsProps) {
   const patients = items.filter((item) => item.audience === "patient");
 
   return (
-    <Section className="flex flex-col gap-20 sm:gap-24">
-      <Group title="From the Doctor's side" items={doctors} startIndex={0} />
-      <Group title="For your patients" items={patients} startIndex={doctors.length} />
+    <Section>
+      <FeatureTabs doctor={<DoctorGroup items={doctors} />} patient={<Group items={patients} />} />
     </Section>
   );
 }
 
-interface GroupProps {
-  title: string;
-  items: FeaturePageItem[];
-  startIndex: number;
-}
+const DASHBOARD_VIEW_BY_TITLE: Record<string, string> = {
+  "Doctor Dashboard": "Overview",
+  "Appointment Management": "Appointments",
+  "Patient Records": "Patients",
+  "Digital Prescription": "Prescriptions",
+  "Billing & Invoicing": "Billing",
+};
 
-function Group({ title, items, startIndex }: GroupProps) {
+function DoctorGroup({ items }: { items: FeaturePageItem[] }) {
   return (
     <div className="flex flex-col gap-12 sm:gap-16">
-      <Reveal direction="up" className="text-center">
-        <h2 className="font-heading text-3xl font-bold tracking-tight text-foreground sm:text-4xl">
-          {title}
-        </h2>
-      </Reveal>
-      <div className="flex w-full flex-col gap-10 sm:gap-14">
-        {items.map((item, i) => (
-          <TextRow key={item.title} item={item} duplicateMockup={startIndex === 0 && i === 0} />
-        ))}
+      <div className="flex w-full flex-col gap-20 sm:gap-28">
+        {items.map((item, i) => {
+          const view = DASHBOARD_VIEW_BY_TITLE[item.title];
+          const textFirst = i % 2 === 0;
+          return (
+            <Reveal direction="up" key={item.title}>
+              <div className="grid grid-cols-1 items-center gap-8 border-b border-border/40 pb-10 last:border-b-0 last:pb-0 lg:grid-cols-[minmax(0,1.15fr)_minmax(0,1.45fr)] lg:gap-12">
+                <div
+                  className={cn(
+                    textFirst ? "" : "lg:order-2",
+                    item.title === "Appointment Management" && "lg:pl-20",
+                    item.title === "Digital Prescription" && "lg:pl-20"
+                  )}
+                >
+                  <h3 className="font-heading text-2xl font-bold tracking-tight text-foreground sm:text-[2.5rem]">
+                    {item.title}
+                  </h3>
+                  <p className="mt-4 text-base leading-relaxed text-muted-foreground">
+                    {item.description}
+                  </p>
+                  <ul className="mt-5 flex flex-col gap-2.5">
+                    {item.points.map((point) => (
+                      <li key={point} className="flex items-start gap-3 text-base leading-relaxed text-foreground/85">
+                        <span className="mt-0.5 flex h-5 w-5 shrink-0 items-center justify-center rounded-full bg-primary/10 text-primary">
+                          <Check className="h-3.5 w-3.5" strokeWidth={2.75} />
+                        </span>
+                        {point}
+                      </li>
+                    ))}
+                  </ul>
+                </div>
+
+                <div className={cn("self-center lg:mt-6", textFirst ? "" : "lg:order-1")}>
+                  {view && (
+                    <DashboardRowMockup
+                      activeItem={view}
+                      className={
+                        item.title === "Appointment Management" || item.title === "Digital Prescription"
+                          ? "max-w-[660px] min-h-[350px]"
+                          : undefined
+                      }
+                    />
+                  )}
+                </div>
+              </div>
+            </Reveal>
+          );
+        })}
       </div>
     </div>
   );
 }
 
-function TextRow({ item, duplicateMockup }: { item: FeaturePageItem; duplicateMockup?: boolean }) {
-  const layout = getMockupLayout(item);
-  if (!layout) {
-    return (
-      <Reveal direction="up">
-        <div className="border-b border-border/40 pb-10 last:border-b-0 last:pb-0">
-          <div className="text-left">
-            <h3 className="font-heading text-2xl font-bold tracking-tight text-foreground sm:text-[2.5rem]">
-              {item.title}
-            </h3>
-            <p className="mt-4 text-base leading-relaxed text-muted-foreground">
-              {item.description}
-            </p>
-            <ul className="mt-5 flex flex-col gap-2.5">
-              {item.points.map((point) => (
-                <li key={point} className="flex items-start gap-3 text-base leading-relaxed text-foreground/85">
-                  <span className="mt-0.5 flex h-5 w-5 shrink-0 items-center justify-center rounded-full bg-primary/10 text-primary">
-                    <Check className="h-3.5 w-3.5" strokeWidth={2.75} />
-                  </span>
-                  {point}
-                </li>
-              ))}
-            </ul>
-          </div>
-        </div>
-      </Reveal>
-    );
-  }
+const PHONE_VARIANT_BY_MOCKUP: Record<string, PhoneMockupVariant> = {
+  "phone-book": "book",
+  "phone-records": "records",
+  "phone-reminders": "reminders",
+  "phone-billing": "billing",
+};
 
-  const { mockup, mockupSide } = layout;
-  const textFirst = mockupSide === "right";
-
-  return (
-    <Reveal direction="up">
-      <div className="grid grid-cols-1 items-center gap-8 border-b border-border/40 pb-10 last:border-b-0 last:pb-0 lg:grid-cols-[minmax(0,1.15fr)_minmax(0,1.45fr)] lg:gap-12">
-        <div className={cn("text-left", !textFirst && "lg:order-2", item.mockup === "appointments" && "lg:ml-24")}>
-          <h3 className="font-heading text-2xl font-bold tracking-tight text-foreground sm:text-[2.5rem]">
-            {item.title}
-          </h3>
-          <p className="mt-4 text-base leading-relaxed text-muted-foreground">
-            {item.description}
-          </p>
-          <ul className="mt-5 flex flex-col gap-2.5">
-            {item.points.map((point) => (
-              <li key={point} className="flex items-start gap-3 text-base leading-relaxed text-foreground/85">
-                <span className="mt-0.5 flex h-5 w-5 shrink-0 items-center justify-center rounded-full bg-primary/10 text-primary">
-                  <Check className="h-3.5 w-3.5" strokeWidth={2.75} />
-                </span>
-                {point}
-              </li>
-            ))}
-          </ul>
-        </div>
-
-        <div className={cn("flex w-full flex-col gap-6 pt-6 lg:pt-10", !textFirst && "lg:order-1")}>
-          {mockup}
-          {duplicateMockup && <DashboardRowMockup activeItem="Appointments" />}
-          {duplicateMockup && <DashboardRowMockup activeItem="Patients" />}
-          {duplicateMockup && <DashboardRowMockup activeItem="Prescriptions" />}
-        </div>
-      </div>
-    </Reveal>
-  );
+interface GroupProps {
+  items: FeaturePageItem[];
 }
 
-function getMockupLayout(item: FeaturePageItem): { mockup: React.ReactNode; mockupSide: "left" | "right" } | null {
-  if (item.audience !== "doctor") return null;
-  switch (item.mockup) {
-    case "dashboard":
-      return { mockup: <DashboardRowMockup />, mockupSide: "right" };
-    case "appointments":
-      return { mockup: <AppointmentsRowMockup />, mockupSide: "left" };
-    default:
-      return null;
-  }
+function Group({ items }: GroupProps) {
+  return (
+    <div className="flex flex-col gap-12 sm:gap-16">
+      <div className="flex w-full flex-col gap-20 sm:gap-28">
+        {items.map((item, i) => {
+          const variant = item.mockup ? PHONE_VARIANT_BY_MOCKUP[item.mockup] : undefined;
+          const textFirst = i % 2 === 0;
+          return (
+            <Reveal direction="up" key={item.title}>
+              <div className="grid grid-cols-1 items-center gap-8 border-b border-border/40 pb-10 last:border-b-0 last:pb-0 lg:grid-cols-[minmax(0,1.15fr)_minmax(0,1fr)] lg:gap-12">
+                <div className={cn("text-left", !textFirst && "lg:order-2")}>
+                  <h3 className="font-heading text-2xl font-bold tracking-tight text-foreground sm:text-[2.5rem]">
+                    {item.title}
+                  </h3>
+                  <p className="mt-4 text-base leading-relaxed text-muted-foreground">
+                    {item.description}
+                  </p>
+                  <ul className="mt-5 flex flex-col gap-2.5">
+                    {item.points.map((point) => (
+                      <li key={point} className="flex items-start gap-3 text-base leading-relaxed text-foreground/85">
+                        <span className="mt-0.5 flex h-5 w-5 shrink-0 items-center justify-center rounded-full bg-primary/10 text-primary">
+                          <Check className="h-3.5 w-3.5" strokeWidth={2.75} />
+                        </span>
+                        {point}
+                      </li>
+                    ))}
+                  </ul>
+                </div>
+
+                <div className={cn("flex justify-center self-center", !textFirst && "lg:order-1")}>
+                  {variant && <PhoneMockup variant={variant} />}
+                </div>
+              </div>
+            </Reveal>
+          );
+        })}
+      </div>
+    </div>
+  );
 }

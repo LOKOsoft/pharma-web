@@ -59,7 +59,7 @@ export function ContactForm() {
 
   if (submitted) {
     return (
-      <GlassCard glow className="flex flex-col items-center gap-4 p-12 text-center">
+      <GlassCard glow className="flex flex-col items-center gap-4 rounded-xl p-12 text-center">
         <span className="flex h-14 w-14 items-center justify-center rounded-full bg-success/10 text-success">
           <CheckCircle2 className="h-7 w-7" />
         </span>
@@ -76,7 +76,7 @@ export function ContactForm() {
   }
 
   return (
-    <GlassCard glow className="p-8 sm:p-10">
+    <GlassCard glow className="rounded-xl p-8 sm:p-12">
       <form onSubmit={handleSubmit(onSubmit)} noValidate className="flex flex-col gap-5">
         <div className="grid grid-cols-1 gap-5 sm:grid-cols-2">
           <div className="flex flex-col gap-2">

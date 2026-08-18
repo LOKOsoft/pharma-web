@@ -57,7 +57,7 @@ export function Footer() {
       />
 
       <Container className="relative py-16 sm:py-20">
-        <div className="grid grid-cols-1 gap-12 lg:grid-cols-[1.4fr_1fr_1fr_1fr_1.2fr]">
+        <div className="grid grid-cols-1 gap-12 lg:grid-cols-[1.4fr_1fr_1fr_1.2fr]">
           <div className="max-w-sm">
             <Logo variant="light" />
             <p className="mt-4 text-sm leading-relaxed text-navy-muted">
@@ -81,7 +81,6 @@ export function Footer() {
           </div>
 
           <FooterColumn title="Product" links={footerNav.product} />
-          <FooterColumn title="Solutions" links={footerNav.solutions} />
           <FooterColumn title="Company" links={footerNav.company} />
 
           <div>

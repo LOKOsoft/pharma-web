@@ -65,10 +65,10 @@ export default function ContactPage() {
             </p>
           </Reveal>
 
-          <div className="mt-10 flex flex-col gap-5">
+          <div className="mt-10 flex flex-col gap-4">
             {contactDetails.map((detail, i) => (
               <Reveal key={detail.label} direction="up" delay={i * 0.06}>
-                <div className="flex items-start gap-4 rounded-2xl border border-border/70 bg-surface p-5">
+                <div className="flex items-start gap-4 rounded-2xl border border-border/70 bg-surface p-3.5">
                   <span className="flex h-11 w-11 shrink-0 items-center justify-center rounded-xl bg-gradient-to-br from-primary/12 to-accent/12 text-primary">
                     <detail.icon className="h-5 w-5" strokeWidth={1.75} />
                   </span>
@@ -95,7 +95,7 @@ export default function ContactPage() {
           </div>
         </div>
 
-        <Reveal direction="left">
+        <Reveal direction="left" className="lg:mt-24">
           <ContactForm />
         </Reveal>
       </div>

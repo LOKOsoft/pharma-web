@@ -11,7 +11,7 @@ export interface FeaturePageItem {
   description: string;
   points: string[];
   audience: "doctor" | "patient";
-  mockup: DoctorMockup | PatientMockup;
+  mockup?: DoctorMockup | PatientMockup;
 }
 
 const findProduct = (title: string): { icon: LucideIcon; title: string } => {
@@ -28,7 +28,7 @@ const findPatient = (title: string): { icon: LucideIcon; title: string } => {
 
 export const featuresPage: FeaturePageItem[] = [
   {
-    ...findProduct("Doctor Dashboard Overview"),
+    ...findProduct("Doctor Dashboard"),
     description: "Patient queue, history, and notes in one clean workspace.",
     points: [
       "Unified patient timeline and full visit history",
@@ -89,67 +89,6 @@ export const featuresPage: FeaturePageItem[] = [
       "Receipts delivered to patients",
     ],
     audience: "doctor",
-    mockup: "dashboard",
-  },
-  {
-    ...findProduct("Inventory Management"),
-    description: "Real-time stock tracking with low-stock alerts.",
-    points: [
-      "Real-time medicine and supply tracking",
-      "Low-stock alerts and reorder thresholds",
-      "Supplier ordering in one click",
-      "Expiry-date warnings for batches",
-    ],
-    audience: "doctor",
-    mockup: "dashboard",
-  },
-  {
-    ...findProduct("Lab Reports"),
-    description: "Lab orders and results delivered straight into the patient record.",
-    points: [
-      "Digitized lab orders and results",
-      "Direct delivery into patient records",
-      "Flagged abnormal values for review",
-      "Trend view across past reports",
-    ],
-    audience: "doctor",
-    mockup: "dashboard",
-  },
-  {
-    ...findProduct("Analytics & Insights"),
-    description: "Live dashboards covering revenue, flow, and outcomes.",
-    points: [
-      "Revenue and patient-flow dashboards",
-      "Doctor and department performance",
-      "No-show and wait-time tracking",
-      "Export to CSV or share with team",
-    ],
-    audience: "doctor",
-    mockup: "analytics",
-  },
-  {
-    ...findProduct("Telemedicine"),
-    description: "HD video visits with notes and prescriptions built in.",
-    points: [
-      "HD video with low-bandwidth fallback",
-      "Notes and prescriptions in the call",
-      "No third-party app to install",
-      "Recorded visits with patient consent",
-    ],
-    audience: "doctor",
-    mockup: "telemedicine",
-  },
-  {
-    ...findProduct("Smart Notifications"),
-    description: "SMS, email, and push alerts for visits, refills, and labs.",
-    points: [
-      "SMS, email, and push channels",
-      "Per-patient language preferences",
-      "Quiet hours and frequency caps",
-      "Open and confirm tracking",
-    ],
-    audience: "doctor",
-    mockup: "dashboard",
   },
   {
     ...findPatient("Book in Seconds"),

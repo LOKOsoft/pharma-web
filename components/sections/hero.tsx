@@ -6,13 +6,18 @@ import { motion } from "framer-motion";
 import {
   ArrowRight,
   Activity,
+  AlertTriangle,
   Bell,
   CalendarCheck,
   CheckCircle2,
+  CreditCard,
+  FileSignature,
   HeartPulse,
   Pill,
   PlayCircle,
   Search,
+  Send,
+  Settings as SettingsIcon,
   Stethoscope,
   TrendingUp,
 } from "lucide-react";
@@ -116,7 +121,7 @@ export function Hero() {
   );
 }
 
-const DASHBOARD_SIDEBAR_ITEMS = ["Overview", "Appointments", "Patients", "Prescriptions", "Billing", "Analytics", "Settings"];
+const DASHBOARD_SIDEBAR_ITEMS = ["Overview", "Appointments", "Patients", "Prescriptions", "Billing", "Settings"];
 
 const PATIENT_ROWS = [
   { name: "Rohan Gupta", meta: "32 · Male · B+", bp: "118/76", hr: "72", lastVisit: "Aug 10", status: "Stable" },
@@ -147,19 +152,57 @@ const CAL_APPOINTMENTS: Record<string, { doctor: string; type: string; tone: "pr
   "Sat-10:00": { doctor: "Dr. Iyer", type: "Follow-up", tone: "primary" },
   "Sat-16:00": { doctor: "Dr. Sharma", type: "Procedure", tone: "accent" },
 };
-const PRESCRIPTION_ROWS = [
-  { patient: "Rohan Gupta", drug: "Amoxicillin", dose: "500 mg", freq: "3× daily · 5 days", status: "Active" },
-  { patient: "Priya Singh", drug: "Metformin", dose: "500 mg", freq: "2× daily · ongoing", status: "Active" },
-  { patient: "Arjun Reddy", drug: "Atorvastatin", dose: "10 mg", freq: "Once daily · ongoing", status: "Review" },
-  { patient: "Sana Khan", drug: "Paracetamol", dose: "650 mg", freq: "As needed · max 4/day", status: "Active" },
-  { patient: "Meera Nair", drug: "Losartan", dose: "50 mg", freq: "Once daily · ongoing", status: "Active" },
-  { patient: "Vikram Rao", drug: "Amlodipine", dose: "5 mg", freq: "Once daily · ongoing", status: "Review" },
+const NEW_RX_ITEMS = [
+  { drug: "Amoxicillin", dose: "500 mg", freq: "3× daily · 5 days" },
+  { drug: "Paracetamol", dose: "650 mg", freq: "As needed · max 4/day" },
+  { drug: "Cetirizine", dose: "10 mg", freq: "Once daily · 7 days" },
+  { drug: "Pantoprazole", dose: "40 mg", freq: "Once daily · before breakfast" },
 ];
 const CAL_TONE_CLASSES: Record<string, string> = {
   primary: "from-primary/90 to-primary/60 text-white",
   accent: "from-accent/90 to-accent/60 text-white",
   secondary: "from-secondary/90 to-secondary/60 text-white",
 };
+
+const BILLING_INVOICES = [
+  { patient: "Rohan Gupta", desc: "Consultation + labs", amount: "₹2,450", status: "Paid" },
+  { patient: "Priya Singh", desc: "Follow-up visit", amount: "₹800", status: "Paid" },
+  { patient: "Arjun Reddy", desc: "Procedure + medication", amount: "₹6,200", status: "Pending" },
+  { patient: "Sana Khan", desc: "Consultation", amount: "₹800", status: "Overdue" },
+  { patient: "Meera Nair", desc: "Lab panel", amount: "₹1,600", status: "Paid" },
+  { patient: "Vikram Rao", desc: "Consultation + procedure", amount: "₹4,900", status: "Pending" },
+  { patient: "Ananya Das", desc: "Consultation", amount: "₹800", status: "Paid" },
+];
+const BILLING_STATUS_CLASSES: Record<string, string> = {
+  Paid: "bg-success/10 text-success",
+  Pending: "bg-amber-100 text-amber-700",
+  Overdue: "bg-rose-100 text-rose-700",
+};
+
+const ANALYTICS_KPIS = [
+  { label: "Revenue (MTD)", value: "₹4.82L", delta: "+18.2%" },
+  { label: "Visits", value: "1,284", delta: "+6.4%" },
+  { label: "Avg. wait", value: "6 min", delta: "-12%" },
+  { label: "Satisfaction", value: "4.9/5", delta: "+0.2" },
+];
+const ANALYTICS_BARS = [40, 65, 45, 80, 60, 95, 70, 55, 85, 65, 90, 75];
+
+const SETTINGS_SECTIONS = [
+  {
+    title: "Profile",
+    fields: [
+      { label: "Practice name", value: "9Doctor Multispecialty" },
+      { label: "Time zone", value: "Asia/Kolkata (GMT+5:30)" },
+    ],
+  },
+  {
+    title: "Notifications",
+    fields: [
+      { label: "Email alerts", value: "On" },
+      { label: "SMS reminders", value: "On" },
+    ],
+  },
+];
 
 export function DashboardMockup({
   floatingCards = true,
@@ -295,39 +338,161 @@ export function DashboardMockup({
                 ))}
               </div>
             ) : activeItem === "Prescriptions" ? (
-              <div className="flex flex-col gap-3">
-                {PRESCRIPTION_ROWS.map((row, i) => (
+              <div className="flex flex-col rounded-xl border border-border/60 bg-white p-5">
+                <div className="flex items-start justify-between gap-3">
+                  <div className="flex items-center gap-3">
+                    <span className="flex h-10 w-10 shrink-0 items-center justify-center rounded-lg bg-gradient-to-br from-primary/15 to-accent/15 text-primary">
+                      <FileSignature className="h-5 w-5" strokeWidth={1.75} />
+                    </span>
+                    <div>
+                      <p className="font-heading text-sm font-bold text-foreground">New prescription</p>
+                      <p className="text-xs text-muted-foreground">For Rohan Gupta · 32 · Cardiology</p>
+                    </div>
+                  </div>
+                  <span className="inline-flex shrink-0 items-center gap-1 rounded-full bg-emerald-50 px-2.5 py-1 text-[11px] font-semibold text-emerald-700">
+                    <CheckCircle2 className="h-3 w-3" />
+                    No interactions
+                  </span>
+                </div>
+
+                <div className="mt-4 flex flex-col gap-2">
+                  {NEW_RX_ITEMS.map((item) => (
+                    <div
+                      key={item.drug}
+                      className="flex items-center justify-between rounded-lg border border-border/60 bg-white px-4 py-3"
+                    >
+                      <div className="flex items-center gap-3">
+                        <span className="flex h-8 w-8 items-center justify-center rounded-md bg-primary/8 text-primary">
+                          <Pill className="h-4 w-4" strokeWidth={1.75} />
+                        </span>
+                        <div>
+                          <p className="text-sm font-semibold text-foreground">{item.drug}</p>
+                          <p className="text-xs text-muted-foreground">{item.freq}</p>
+                        </div>
+                      </div>
+                      <span className="text-sm font-semibold text-foreground">{item.dose}</span>
+                    </div>
+                  ))}
+                  <button
+                    type="button"
+                    className="rounded-lg border border-dashed border-border/60 px-4 py-2.5 text-xs font-medium text-muted-foreground"
+                  >
+                    + Add medication
+                  </button>
+                </div>
+
+                <div className="mt-4 flex items-center gap-2 rounded-lg border border-amber-200/70 bg-amber-50/60 px-3 py-2.5">
+                  <AlertTriangle className="h-3.5 w-3.5 shrink-0 text-amber-800" />
+                  <p className="text-xs text-amber-800">Allergy check: no penicillin sensitivity on file</p>
+                </div>
+
+                <button
+                  type="button"
+                  className="mt-4 inline-flex w-full items-center justify-center gap-2 rounded-lg bg-primary px-4 py-2.5 text-sm font-semibold text-white shadow-sm"
+                >
+                  <Send className="h-3.5 w-3.5" />
+                  Sign &amp; send
+                </button>
+              </div>
+            ) : activeItem === "Billing" ? (
+              <div className="flex flex-col overflow-hidden rounded-xl border border-border/60">
+                <div className="grid grid-cols-[1fr_140px_90px_90px] gap-0 border-b border-border/60 bg-muted/30 px-5 py-2.5 text-xs font-semibold uppercase tracking-wider text-muted-foreground">
+                  <span>Patient</span>
+                  <span>Description</span>
+                  <span className="text-right">Amount</span>
+                  <span className="text-right">Status</span>
+                </div>
+                {BILLING_INVOICES.map((row, i) => (
                   <div
                     key={row.patient}
-                    className={`flex items-center gap-4 rounded-xl border border-border/60 p-4 ${
+                    className={`grid grid-cols-[1fr_140px_90px_90px] items-center gap-0 border-b border-border/60 px-5 py-3.5 text-sm last:border-b-0 ${
                       i === 0 ? "bg-primary/5" : "bg-white"
                     }`}
                   >
-                    <span className="flex h-10 w-10 shrink-0 items-center justify-center rounded-lg bg-gradient-to-br from-primary/15 to-accent/15 text-primary">
-                      <Pill className="h-5 w-5" strokeWidth={1.75} />
-                    </span>
-                    <div className="flex-1">
-                      <div className="flex items-center gap-2">
-                        <p className="font-heading text-sm font-bold text-foreground">{row.drug}</p>
-                        <span className="text-xs text-muted-foreground">·</span>
-                        <p className="text-xs font-medium text-muted-foreground">{row.dose}</p>
-                      </div>
-                      <p className="mt-0.5 text-xs text-muted-foreground">
-                        {row.patient} — {row.freq}
-                      </p>
-                    </div>
-                    <span
-                      className={`inline-flex shrink-0 items-center gap-1 rounded-full px-2.5 py-1 text-[11px] font-semibold ${
-                        row.status === "Active"
-                          ? "bg-emerald-50 text-emerald-700"
-                          : "bg-amber-50 text-amber-700"
-                      }`}
-                    >
-                      <CheckCircle2 className="h-3 w-3" />
-                      {row.status}
+                    <span className="font-semibold text-foreground">{row.patient}</span>
+                    <span className="text-xs text-muted-foreground">{row.desc}</span>
+                    <span className="text-right font-medium text-foreground/80">{row.amount}</span>
+                    <span className="text-right">
+                      <span
+                        className={`inline-flex items-center rounded-full px-2 py-0.5 text-[11px] font-semibold ${BILLING_STATUS_CLASSES[row.status]}`}
+                      >
+                        {row.status}
+                      </span>
                     </span>
                   </div>
                 ))}
+                <div className="flex items-center justify-between gap-2 bg-muted/20 px-5 py-3">
+                  <span className="flex items-center gap-2 text-xs text-muted-foreground">
+                    <CreditCard className="h-3.5 w-3.5" />
+                    6 invoices this week
+                  </span>
+                  <button
+                    type="button"
+                    className="rounded-lg bg-primary px-3 py-1.5 text-xs font-semibold text-white shadow-sm"
+                  >
+                    New invoice
+                  </button>
+                </div>
+              </div>
+            ) : activeItem === "Analytics" ? (
+              <div className="flex flex-col gap-4">
+                <div className="grid grid-cols-2 gap-3 sm:grid-cols-4">
+                  {ANALYTICS_KPIS.map((kpi) => (
+                    <div key={kpi.label} className="rounded-xl border border-border/60 bg-white px-4 py-3 text-left">
+                      <p className="text-xs font-medium text-muted-foreground">{kpi.label}</p>
+                      <p className="mt-1 font-heading text-lg font-bold text-foreground">{kpi.value}</p>
+                      <p className="text-xs font-semibold text-success">{kpi.delta}</p>
+                    </div>
+                  ))}
+                </div>
+                <div className="flex-1 rounded-xl border border-border/60 bg-gradient-to-br from-white to-slate-50 p-4 text-left">
+                  <div className="flex items-center justify-between">
+                    <p className="text-sm font-semibold text-foreground">Patient flow</p>
+                    <span className="text-xs text-muted-foreground">Avg. 68 visits/day</span>
+                  </div>
+                  <div className="mt-4 flex h-[180px] items-end gap-1.5">
+                    {ANALYTICS_BARS.map((h, i) => (
+                      <div
+                        key={i}
+                        className="flex-1 rounded-t-md bg-gradient-to-t from-primary/70 to-accent/70"
+                        style={{ height: `${h}%` }}
+                      />
+                    ))}
+                  </div>
+                </div>
+              </div>
+            ) : activeItem === "Settings" ? (
+              <div className="flex flex-col gap-4 rounded-xl border border-border/60 bg-white p-5">
+                <div className="flex items-center gap-3">
+                  <span className="flex h-10 w-10 shrink-0 items-center justify-center rounded-lg bg-gradient-to-br from-primary/15 to-accent/15 text-primary">
+                    <SettingsIcon className="h-5 w-5" strokeWidth={1.75} />
+                  </span>
+                  <p className="font-heading text-sm font-bold text-foreground">Settings</p>
+                </div>
+                {SETTINGS_SECTIONS.map((section) => (
+                  <div key={section.title} className="flex flex-col gap-2">
+                    <p className="text-xs font-semibold uppercase tracking-wider text-muted-foreground">
+                      {section.title}
+                    </p>
+                    {section.fields.map((field) => (
+                      <div
+                        key={field.label}
+                        className="flex items-center justify-between rounded-lg border border-border/60 px-4 py-3"
+                      >
+                        <span className="text-sm text-foreground">{field.label}</span>
+                        <span className="text-xs font-medium text-muted-foreground">{field.value}</span>
+                      </div>
+                    ))}
+                  </div>
+                ))}
+                <div className="mt-2 flex justify-end">
+                  <button
+                    type="button"
+                    className="inline-flex items-center justify-center gap-2 rounded-lg bg-primary px-4 py-2 text-xs font-semibold text-white shadow-sm"
+                  >
+                    Save settings
+                  </button>
+                </div>
               </div>
             ) : (
               <div className="flex flex-col gap-4">
