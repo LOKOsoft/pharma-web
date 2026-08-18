@@ -27,7 +27,7 @@ export function PageHero({ eyebrow, title, description, className }: PageHeroPro
           </h1>
         </Reveal>
         <Reveal direction="up" delay={0.16}>
-          <p className="mt-6 max-w-2xl text-balance text-lg leading-relaxed text-muted-foreground">
+          <p className="mt-6 max-w-2xl text-balance text-base leading-relaxed text-muted-foreground">
             {description}
           </p>
         </Reveal>

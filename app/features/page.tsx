@@ -1,11 +1,10 @@
 import type { Metadata } from "next";
 
 import { PageHero } from "@/components/sections/page-hero";
-import { FeatureHighlights } from "@/components/sections/feature-highlights";
-import { ProductFeatures } from "@/components/sections/product-features";
+import { FeatureRows } from "@/components/sections/feature-rows";
 import { CTA } from "@/components/sections/cta";
 import { BreadcrumbJsonLd } from "@/components/shared/json-ld";
-import { featureHighlights } from "@/constants/feature-highlights";
+import { featuresPage } from "@/constants/features-page";
 import { siteConfig } from "@/lib/site";
 
 export const metadata: Metadata = {
@@ -29,8 +28,7 @@ export default function FeaturesPage() {
         title="Everything your practice needs, thoughtfully designed"
         description="9Doctor brings scheduling, records, prescriptions, billing, and telemedicine together into one platform your entire team will actually enjoy using."
       />
-      <FeatureHighlights items={featureHighlights} />
-      <ProductFeatures />
+      <FeatureRows items={featuresPage} />
       <CTA />
     </>
   );

@@ -19,7 +19,7 @@ export const pricingPlans: PricingPlan[] = [
   {
     name: "Growth",
     description: "For growing clinics and multi-doctor practices.",
-    monthlyPrice: 699,
+    monthlyPrice: 999,
     yearlyPrice: 559,
     popular: true,
     cta: "Get Started",

@@ -2,6 +2,9 @@
 
 import * as React from "react";
 
+import Link from "next/link";
+import { ArrowRight } from "lucide-react";
+
 import { Section } from "@/components/ui/section";
 import { SectionHeading } from "@/components/shared/section-heading";
 import { RevealGroup, RevealItem, Reveal } from "@/components/shared/reveal";
@@ -63,7 +66,7 @@ export function ProductFeatures() {
 
       <div className="mt-28 grid grid-cols-1 items-center gap-12 lg:grid-cols-2 lg:gap-16">
         <div className="flex flex-col justify-center">
-          <span className="mb-3 inline-flex w-fit items-center rounded-full bg-primary/10 px-3 py-1 text-[11px] font-semibold uppercase tracking-wider text-primary">
+          <span className="mb-3 inline-flex w-fit items-center rounded-full bg-primary/10 px-3 py-1 text-[11px] font-semibold tracking-wider text-primary">
             For Doctors
           </span>
           <h3 className="font-heading text-4xl font-semibold text-foreground">
@@ -79,12 +82,20 @@ export function ProductFeatures() {
               </RevealItem>
             ))}
           </RevealGroup>
-          <p className="mt-6 text-sm leading-relaxed text-muted-foreground">
-            Every module connected out of the box — data flows everywhere, no setup needed.
-          </p>
+          <Link
+            href="/product"
+            className="mt-6 inline-flex items-center gap-1.5 text-sm font-semibold text-primary transition-colors hover:text-primary/80"
+          >
+            Learn more
+            <ArrowRight className="h-3.5 w-3.5" />
+          </Link>
         </div>
 
-        <Reveal direction="scale" duration={0.8}>
+        <Reveal direction="scale" duration={0.8} className="relative lg:mt-24">
+          <div
+            aria-hidden
+            className="pointer-events-none absolute left-1/2 top-1/2 -z-10 h-[480px] w-[640px] -translate-x-1/2 -translate-y-1/2 rounded-full bg-slate-950/25 blur-[100px]"
+          />
           <div className="mx-auto w-full max-w-[52rem]">
             {/* Monitor screen */}
             <div className="glow-soft rounded-xl border-[10px] border-navy bg-navy p-0 shadow-[0_50px_90px_-20px_rgba(0,0,0,0.55),0_25px_45px_-15px_rgba(0,0,0,0.4)]">

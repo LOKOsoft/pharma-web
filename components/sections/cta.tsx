@@ -9,12 +9,12 @@ import { Section } from "@/components/ui/section";
 export function CTA() {
   return (
     <Section containerClassName="max-w-[84rem]">
-      <Reveal direction="scale">
-        <div className="relative overflow-hidden rounded-[2.5rem] px-8 py-14 text-center sm:px-16 sm:py-20">
-          <GradientBackground variant="cta" className="rounded-[2.5rem]" />
+      <Reveal direction="scale" className="mb-12 sm:mb-20">
+        <div className="relative overflow-hidden rounded-2xl px-8 py-10 text-center sm:px-16 sm:py-14">
+          <GradientBackground variant="cta" className="rounded-2xl" />
           <div
             aria-hidden
-            className="pointer-events-none absolute inset-0 rounded-[2.5rem] grid-fade opacity-20"
+            className="pointer-events-none absolute inset-0 rounded-2xl grid-fade opacity-20"
           />
           <div
             aria-hidden
@@ -29,7 +29,7 @@ export function CTA() {
           <h2 className="relative mx-auto mt-6 max-w-2xl font-heading text-3xl font-bold tracking-tight text-white sm:text-4xl lg:text-5xl">
             Ready to modernize your healthcare operations?
           </h2>
-          <p className="relative mx-auto mt-5 max-w-xl text-base leading-relaxed text-white/85 sm:text-lg">
+          <p className="relative mx-auto mt-5 max-w-xl text-sm leading-relaxed text-white/85 sm:text-base">
             Join thousands of providers already running their practice on 9Doctor. Book a
             personalized demo today.
           </p>
