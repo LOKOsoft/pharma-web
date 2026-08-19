@@ -9,13 +9,14 @@ export const mainNav: NavLink[] = [
 
 export const footerNav = {
   product: [
+    { label: "Home", href: "/" },
     { label: "Features", href: "/features" },
     { label: "Pricing", href: "/pricing" },
-    { label: "Book a Demo", href: "/contact" },
+    { label: "Contact", href: "/contact" },
   ],
   company: [
     { label: "Contact", href: "/contact" },
-    { label: "Trust & Security", href: "/trust" },
+    { label: "Careers", href: "/careers" },
   ],
   legal: [
     { label: "Privacy Policy", href: "/privacy-policy" },

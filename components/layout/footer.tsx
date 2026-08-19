@@ -1,5 +1,5 @@
 import Link from "next/link";
-import { Facebook, Instagram, Linkedin, Mail, MapPin, Phone, Twitter, Youtube } from "lucide-react";
+import { Instagram, Linkedin, Mail, MapPin, Phone, Twitter, Youtube } from "lucide-react";
 
 import { siteConfig } from "@/lib/site";
 import { footerNav } from "@/constants/nav";
@@ -10,7 +10,6 @@ const socialLinks = [
   { icon: Twitter, href: siteConfig.links.twitter, label: "Twitter" },
   { icon: Linkedin, href: siteConfig.links.linkedin, label: "LinkedIn" },
   { icon: Instagram, href: siteConfig.links.instagram, label: "Instagram" },
-  { icon: Facebook, href: siteConfig.links.facebook, label: "Facebook" },
   { icon: Youtube, href: siteConfig.links.youtube, label: "YouTube" },
 ];
 
@@ -24,7 +23,7 @@ function FooterColumn({
   return (
     <div>
       <h3 className="font-heading text-sm font-semibold text-white">{title}</h3>
-      <ul className="mt-4 space-y-3">
+      <ul className="mt-5 space-y-3">
         {links.map((link) => (
           <li key={link.label}>
             <Link
@@ -45,69 +44,78 @@ export function Footer() {
     <footer className="relative overflow-hidden bg-navy">
       <div
         aria-hidden
-        className="pointer-events-none absolute inset-x-0 top-0 h-px bg-gradient-to-r from-transparent via-white/10 to-transparent"
-      />
-      <div
-        aria-hidden
         className="pointer-events-none absolute -left-32 -top-32 h-96 w-96 rounded-full bg-primary/15 blur-3xl"
       />
       <div
         aria-hidden
-        className="pointer-events-none absolute -right-32 bottom-0 h-96 w-96 rounded-full bg-accent/10 blur-3xl"
+        className="pointer-events-none absolute -right-32 top-0 h-96 w-96 rounded-full bg-accent/10 blur-3xl"
       />
 
-      <Container className="relative py-16 sm:py-20">
-        <div className="grid grid-cols-1 gap-12 lg:grid-cols-[1.4fr_1fr_1fr_1.2fr]">
-          <div className="max-w-sm">
+      <Container className="relative px-3 pb-10 pt-20 sm:px-5 sm:pb-12 sm:pt-24 lg:px-6">
+        <div className="grid grid-cols-2 gap-x-6 gap-y-12 sm:grid-cols-[2fr_1fr_1fr_1fr_1fr]">
+          <div className="col-span-2 max-w-xs sm:col-span-1">
             <Logo variant="light" />
             <p className="mt-4 text-sm leading-relaxed text-navy-muted">
-              The intelligent Doctor & Patient Management System for hospitals, clinics, and
-              healthcare teams who expect better software.
+              {siteConfig.name} is a full-service practice management platform for hospitals,
+              clinics, and healthcare teams.
             </p>
-            <div className="mt-6 flex items-center gap-2">
-              {socialLinks.map((social) => (
-                <a
-                  key={social.label}
-                  href={social.href}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  aria-label={social.label}
-                  className="flex h-9 w-9 items-center justify-center rounded-full border border-white/10 text-navy-muted transition-all hover:border-accent/40 hover:bg-white/5 hover:text-accent"
-                >
-                  <social.icon className="h-4 w-4" />
-                </a>
-              ))}
-            </div>
           </div>
 
-          <FooterColumn title="Product" links={footerNav.product} />
-          <FooterColumn title="Company" links={footerNav.company} />
+          <FooterColumn title="Navigations" links={footerNav.product} />
+          <FooterColumn title="Options" links={footerNav.company} />
 
           <div>
-            <h3 className="font-heading text-sm font-semibold text-white">Stay updated</h3>
-            <ul className="mt-4 space-y-3 text-sm text-navy-muted">
-              <li className="flex items-start gap-2">
-                <Mail className="mt-0.5 h-4 w-4 shrink-0 text-accent" />
-                <a href={`mailto:${siteConfig.contact.email}`} className="hover:text-accent">
+            <h3 className="font-heading text-sm font-semibold text-white">Social</h3>
+            <ul className="mt-5 space-y-3">
+              {socialLinks.map((social) => (
+                <li key={social.label}>
+                  <a
+                    href={social.href}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="flex items-center gap-2 text-sm text-navy-muted transition-colors hover:text-accent"
+                  >
+                    <social.icon className="h-3.5 w-3.5" />
+                    {social.label}
+                  </a>
+                </li>
+              ))}
+            </ul>
+          </div>
+
+          <div>
+            <h3 className="font-heading text-sm font-semibold text-white">Contact</h3>
+            <ul className="mt-5 space-y-3">
+              <li>
+                <a
+                  href={`mailto:${siteConfig.contact.email}`}
+                  className="flex items-center gap-2 text-sm text-navy-muted transition-colors hover:text-accent"
+                >
+                  <Mail className="h-3.5 w-3.5" />
                   {siteConfig.contact.email}
                 </a>
               </li>
-              <li className="flex items-start gap-2">
-                <Phone className="mt-0.5 h-4 w-4 shrink-0 text-accent" />
-                <a href={`tel:${siteConfig.contact.phone}`} className="hover:text-accent">
+              <li>
+                <a
+                  href={`tel:${siteConfig.contact.phone.replace(/\s/g, "")}`}
+                  className="flex items-center gap-2 text-sm text-navy-muted transition-colors hover:text-accent"
+                >
+                  <Phone className="h-3.5 w-3.5" />
                   {siteConfig.contact.phone}
                 </a>
               </li>
-              <li className="flex items-start gap-2">
-                <MapPin className="mt-0.5 h-4 w-4 shrink-0 text-accent" />
-                <span>{siteConfig.contact.address}</span>
+              <li>
+                <span className="flex items-start gap-2 text-sm text-navy-muted">
+                  <MapPin className="mt-0.5 h-3.5 w-3.5 shrink-0" />
+                  {siteConfig.contact.address}
+                </span>
               </li>
             </ul>
           </div>
         </div>
 
-        <div className="mt-14 flex flex-col items-center justify-between gap-4 border-t border-white/10 pt-8 sm:flex-row">
-          <p className="text-sm text-navy-muted">
+        <div className="relative mt-10 flex flex-col items-start justify-between gap-4 sm:mt-28 sm:flex-row sm:items-end">
+          <p className="text-sm text-navy-muted sm:mt-10">
             © {new Date().getFullYear()} {siteConfig.name}. All rights reserved.
           </p>
           <div className="flex items-center gap-6">
@@ -120,6 +128,9 @@ export function Footer() {
                 {link.label}
               </Link>
             ))}
+            <a href="http://lokosoft.com/" target="_blank" rel="noopener noreferrer">
+              <img src="/icon.png" alt="Lokosoft" className="h-[35px] w-[35px]" />
+            </a>
           </div>
         </div>
       </Container>
