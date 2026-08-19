@@ -56,8 +56,9 @@ export function Footer() {
           <div className="col-span-2 max-w-xs sm:col-span-1">
             <Logo variant="light" />
             <p className="mt-4 text-sm leading-relaxed text-navy-muted">
-              {siteConfig.name} is a full-service practice management platform for hospitals,
-              clinics, and healthcare teams.
+              {siteConfig.name} is a full-service practice management platform that helps doctors
+              and patients manage appointments, records, prescriptions, billing, and more —
+              all in one elegant place.
             </p>
           </div>
 

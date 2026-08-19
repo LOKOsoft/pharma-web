@@ -19,6 +19,9 @@ function GradientBackground({
     >
       {variant === "hero" && (
         <>
+          <div
+            className="absolute inset-0 opacity-40 [background-image:radial-gradient(circle,rgba(15,23,42,0.14)_1px,transparent_1px)] [background-size:28px_28px] [mask-image:radial-gradient(ellipse_60%_55%_at_50%_35%,black_10%,transparent_75%)]"
+          />
           <div className="absolute left-1/2 top-[-12rem] h-[42rem] w-[42rem] -translate-x-1/2 rounded-full bg-gradient-to-br from-primary/25 via-accent/20 to-secondary/25 blur-3xl animate-glow-pulse" />
           <div className="absolute -left-32 top-40 h-96 w-96 rounded-full bg-accent/20 blur-3xl animate-float-slow" />
           <div className="absolute -right-24 top-16 h-[28rem] w-[28rem] rounded-full bg-secondary/20 blur-3xl animate-float" />

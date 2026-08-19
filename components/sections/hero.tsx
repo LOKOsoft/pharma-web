@@ -28,10 +28,68 @@ import { GradientBackground } from "@/components/ui/gradient-background";
 import { AnimatedCounter } from "@/components/shared/animated-counter";
 import { heroStats } from "@/constants/stats";
 
+const HERO_SIDE_IMAGES = {
+  left: [
+    {
+      src: "https://images.unsplash.com/photo-1622902046580-2b47f47f5471?w=300&h=300&fit=crop&q=80",
+      alt: "Doctor in white coat smiling",
+      className: "left-0 top-16 -translate-x-1/2 -rotate-6 lg:left-4",
+    },
+    {
+      src: "https://images.unsplash.com/photo-1594824476967-48c8b964273f?w=300&h=300&fit=crop&q=80",
+      alt: "Doctor in teal scrubs",
+      className: "left-0 top-[11rem] -translate-x-1/4 rotate-3 lg:left-24",
+    },
+    {
+      src: "https://images.unsplash.com/photo-1612349317150-e413f6a5b16d?w=300&h=300&fit=crop&q=80",
+      alt: "Doctor with stethoscope",
+      className: "left-0 top-[19rem] -translate-x-1/2 -rotate-3 lg:left-2",
+    },
+  ],
+  right: [
+    {
+      src: "https://images.unsplash.com/photo-1559839734-2b71ea197ec2?w=300&h=300&fit=crop&q=80",
+      alt: "Doctor in white coat outdoors",
+      className: "right-0 top-32 translate-x-1/2 rotate-6 lg:right-4",
+    },
+    {
+      src: "https://images.unsplash.com/photo-1584515979956-d9f6e5d09982?w=300&h=300&fit=crop&q=80",
+      alt: "Vaccination close-up",
+      className: "right-0 top-[17rem] translate-x-1/4 -rotate-6 lg:right-20",
+    },
+    {
+      src: "https://images.unsplash.com/photo-1584982751601-97dcc096659c?w=300&h=300&fit=crop&q=80",
+      alt: "Stethoscope on white background",
+      className: "right-0 top-[25rem] translate-x-1/2 rotate-3 lg:right-2",
+    },
+  ],
+};
+
 export function Hero() {
   return (
-    <section className="relative overflow-hidden pb-20 pt-24 sm:pb-28 sm:pt-32">
+    <section className="relative overflow-x-clip pb-20 pt-24 sm:pb-28 sm:pt-32">
       <GradientBackground variant="hero" />
+
+      <div aria-hidden className="pointer-events-none absolute inset-0 hidden xl:block">
+        {HERO_SIDE_IMAGES.left.map((img) => (
+          <div
+            key={img.src}
+            className={`glass glow-soft absolute h-24 w-24 overflow-hidden rounded-2xl border-4 border-white shadow-xl ${img.className}`}
+          >
+            {/* eslint-disable-next-line @next/next/no-img-element */}
+            <img src={img.src} alt={img.alt} className="h-full w-full object-cover" />
+          </div>
+        ))}
+        {HERO_SIDE_IMAGES.right.map((img) => (
+          <div
+            key={img.src}
+            className={`glass glow-soft absolute h-24 w-24 overflow-hidden rounded-2xl border-4 border-white shadow-xl ${img.className}`}
+          >
+            {/* eslint-disable-next-line @next/next/no-img-element */}
+            <img src={img.src} alt={img.alt} className="h-full w-full object-cover" />
+          </div>
+        ))}
+      </div>
 
       <div className="mx-auto flex max-w-7xl flex-col items-center px-5 text-center sm:px-8 lg:px-10">
         <motion.div
